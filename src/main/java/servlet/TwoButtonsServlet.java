@@ -43,10 +43,10 @@ static String Path    = "";
 static String Servlet = "twoButtons";
 
 // Button labels
-static String StringAB = "StringAStringB";
-static String StringBA = "StringBStringA";
+static String StringAStringB = "StringAStringB";
+static String StringBStringA = "StringBStringA";
 //David: (2) adds Multiplication label
-static String OperationMult = "Multiply";
+//static String OperationMult = "Multiply";
 
 // Other strings.
 static String Style ="https://www.cs.gmu.edu/~offutt/classes/432/432-style.css";
@@ -61,6 +61,7 @@ static String Style ="https://www.cs.gmu.edu/~offutt/classes/432/432-style.css";
 public void doPost (HttpServletRequest request, HttpServletResponse response)
    throws ServletException, IOException
 {
+	String rslt = "";
    //Float rslt   = new Float(0.0);
    //Float lhsVal = new Float(0.0);
    //Float rhsVal = new Float(0.0);
@@ -72,19 +73,19 @@ public void doPost (HttpServletRequest request, HttpServletResponse response)
    //if ((rhsStr != null) && (rhsStr.length() > 0))
    //   rhsVal = new Float(rhsStr);
 
-   if (operation.equals(StringAB))
+   if (operation.equals(StringAStringB))
    {
       rslt = lhsStr + rhsStr;
    }
-   else if (operation.equals(StringBA))
+   else if (operation.equals(StringBStringA))
    {
-      rslt = rhsStr - lhsStr;
+      rslt = rhsStr + lhsStr;
    }
    //David: (6) adds multiplication action's resolution
-   else if (operation.equals(OperationMult))
-   {
-      rslt = new Float(lhsVal.floatValue() * rhsVal.floatValue());
-   }
+   //else if (operation.equals(OperationMult))
+   //{
+     // rslt = new Float(lhsVal.floatValue() * rhsVal.floatValue());
+   //}
 
    response.setContentType("text/html");
    PrintWriter out = response.getWriter();
@@ -162,10 +163,10 @@ private void PrintBody (PrintWriter out, String lhs, String rhs, String rslt)
    out.println(" </table>");
    out.println(" <br>");
    out.println(" <br>");
-   out.println(" <input type=\"submit\" value=\"" + OperationAdd + "\" name=\"Operation\">");
-   out.println(" <input type=\"submit\" value=\"" + OperationSub + "\" name=\"Operation\">");
+   out.println(" <input type=\"submit\" value=\"" + StringAStringB + "\" name=\"Operation\">");
+   out.println(" <input type=\"submit\" value=\"" + StringBStringA + "\" name=\"Operation\">");
    // David: (3) adds multiplication button
-   out.println(" <input type=\"submit\" value=\"" + OperationMult + "\" name=\"Operation\">");
+   //out.println(" <input type=\"submit\" value=\"" + OperationMult + "\" name=\"Operation\">");
    out.println(" <input type=\"reset\" value=\"Reset\" name=\"reset\">");
    out.println("</form>");
    out.println("");
