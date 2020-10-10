@@ -6,7 +6,7 @@ import javax.servlet.annotation.WebServlet;
 // The @WebServletannotation is used to declare a servlet
 @WebServlet(name = "Logic Predicate Servlet", urlPatterns = {"/Logic"})
 
-public class Logig extends HttpServlet // Inheriting from HttpServlet makes this a servlet
+public class Logic extends HttpServlet // Inheriting from HttpServlet makes this a servlet
 {
 	public void doGet (HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException
