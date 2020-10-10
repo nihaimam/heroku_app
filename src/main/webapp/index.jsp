@@ -14,6 +14,7 @@
 <h2>Hello Heroku! I am JSP</h2>
 <strong>Current Time is not</strong>: <%=new Date() %>
 <p>Try a: </p>
+<button onclick="window.location.assign(servletURL+'/Hello');">Hello! </button>
 <button onclick="window.location.assign(servletURL+'/hello');">Simple servlet </button>
 <button onclick="window.location.assign(servletURL+'/echo');">Echo POST requests servlet </button>
 <button onclick="window.location.assign(servletURL+'/twoButtons');">Form submitting servlet </button>
