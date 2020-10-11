@@ -28,7 +28,7 @@ public class Logic extends HttpServlet // Inheriting from HttpServlet makes this
 		//out.println("overflow:hidden; padding: 50px; margin-left: 30%; margin-top: 3%; color: black;");
                 //out.println("box-shadow: 0 0 2px 2px white inset; }");
 
-		out.println("box {width: 800px; background-color: rgba(255, 0, 0, 0.2); position: absolute; top: 25%; left: 25%;}");
+		out.println("box {width: 800px; background-color: rgba(255, 0, 0, 0.2); position: absolute; top: 10%; left: 15%;}");
 // margin-top: -100px; margin-left: -200px; }");
 
 		out.println("</style>");
