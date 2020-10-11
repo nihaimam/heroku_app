@@ -151,7 +151,7 @@ public class Logic extends HttpServlet // Inheriting from HttpServlet makes this
 				out.println("</th>");
 				a++;		
 			}
-			out.println("<tr>");
+			out.println("</tr>");
 			if (newline == variables.size()){
 				newline = 0;
 			}	
