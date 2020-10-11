@@ -144,10 +144,10 @@ public class Logic extends HttpServlet // Inheriting from HttpServlet makes this
 
 
 		//function to print
-		for (int n = 0; n < output.size(); n++) {
-			out.print(output.get(n));
-			out.println("<br>");
-		}
+		//for (int n = 0; n < output.size(); n++) {
+		//	out.print(output.get(n));
+		//	out.println("<br>");
+		//}
 
 
 		out.println("</table>");
