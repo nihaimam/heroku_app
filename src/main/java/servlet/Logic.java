@@ -132,24 +132,34 @@ public class Logic extends HttpServlet // Inheriting from HttpServlet makes this
 
 	
 		out.println("<table style = 'width:100%'>");
-		out.println("<tr>");
+		//out.println("<tr>");
 			
-		for (int a = 0; a <= variables.size(); a++){
-			out.println("<th>");
-			out.println(output.get(a));
-			out.println("</th>");
-		}
-		
-		out.println("</tr>");
-
-
-		//function to print
-		//for (int n = 0; n < output.size(); n++) {
-		//	out.print(output.get(n));
-		//	out.println("<br>");
+		//for (int a = 0; a <= variables.size(); a++){
+		//	out.println("<th>");
+		//	out.println(output.get(a));
+		//	out.println("</th>");
 		//}
 
+		int newline = 0;
+		int a = 0;
+		while (newline <= variables.size()){
+			newline++;
+			out.println("<tr>");
+			while (a < output.size()){	
+				out.println("<th>");
+				out.println(output.get(a));
+				out.println("</th>");
+				a++;		
+			}
+			out.println("<tr>");
+			if (newline == variables.size()){
+				newline = 0;
+			}	
+		}
 
+		
+		//out.println("</tr>");
+		out.println("</table>");
 		out.println("</table>");
 		out.println("</table>");
 
