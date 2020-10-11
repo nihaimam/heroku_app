@@ -43,7 +43,7 @@ public class Logic extends HttpServlet // Inheriting from HttpServlet makes this
 		out.println("<p align='center'>Allowed operators are:<br>! (not)<br>&& (and)<br>|| (or)</p>");
 		out.println("<tr>");
 		out.println("<td>input:");
-		out.println("<td><input type='text' name='input'/>
+		out.println("<td><input type='text' name='input'/>");
 		out.println("</tr>");
 		out.println("</table>");		
 		out.println("<table align='center' style='padding:10px'>");
