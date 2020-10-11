@@ -120,15 +120,26 @@ public class Logic extends HttpServlet // Inheriting from HttpServlet makes this
                 out.println("<h1>** SWE 432 - Assignment 5 **</h1>");
                 out.println("<br>");
 		
-		out.println("<table>");
+		out.println("<table border = 5>");
+		out.println("<tr><td>");
+		out.println("<table align='center' style='padding:10px'>");
 		out.println("<tr>");
+		out.println("<h2 align='center'><b>You entered:<b></h2>");
+		out.print(input);
+		out.println("<br>");
+		
+		//function to print
+		for (int n = 0; n < output.size(); n++) {
+			out.print(output.get(n));
+		}
+
+
 		out.println("<th> In </th>");
 		out.println("<th> In </th>");
 		out.println("<th> Out </th>");
 		out.println("</tr>");
 		out.println("</table>");
-
-		out.print(output);
+		out.println("</table>");
 
                 out.println("</box>");
                 out.println("</body>");
@@ -137,9 +148,5 @@ public class Logic extends HttpServlet // Inheriting from HttpServlet makes this
 		
 
 	}
-
-
-
-
 
 }  // end Hello
