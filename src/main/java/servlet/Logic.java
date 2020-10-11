@@ -73,8 +73,8 @@ public class Logic extends HttpServlet // Inheriting from HttpServlet makes this
 		response.setContentType("text/html");
 		PrintWriter out = response.getWriter();
 		
-		String input = request.getParameter("input");
-		input = input.replaceAll(" ", "");
+		String reqinput = request.getParameter("input");
+		String input = reqinput.replaceAll(" ", "");
 		input = input.toLowerCase();
 
 		int ctr = 1;
@@ -120,12 +120,12 @@ public class Logic extends HttpServlet // Inheriting from HttpServlet makes this
                 out.println("<h1>** SWE 432 - Assignment 5 **</h1>");
                 out.println("<br>");
 		
-		out.println("<table border = 5>");
+		out.println("<table align='center' border = 5>");
 		out.println("<tr><td>");
 		out.println("<table align='center' style='padding:10px'>");
 		out.println("<tr>");
 		out.println("<h2 align='center'><b>You entered:<b></h2>");
-		out.print(input);
+		out.println(reqinput);
 		out.println("<br>");
 		
 		//function to print
@@ -134,10 +134,6 @@ public class Logic extends HttpServlet // Inheriting from HttpServlet makes this
 		}
 
 
-		out.println("<th> In </th>");
-		out.println("<th> In </th>");
-		out.println("<th> Out </th>");
-		out.println("</tr>");
 		out.println("</table>");
 		out.println("</table>");
 
