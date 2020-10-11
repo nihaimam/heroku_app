@@ -33,9 +33,11 @@ public class Logic extends HttpServlet // Inheriting from HttpServlet makes this
 		out.println("</style>");
 
 		out.println("<body>");
+		out.println("<box>");
 		out.println("<h1>** SWE 432 - Assignment 5 **</h1>");
 		out.println("<br>");
-		out.println("<form method='post' action='https://cs.gmu.edu:8443/offutt/servlet/formHandler'>");
+		out.println("<form method=\"post\"");
+		//out.println("<form method='post' action='https://cs.gmu.edu:8443/offutt/servlet/formHandler'>");
 		out.println("<table border=3 style='background-color:#EFD4CF'>");
 		out.println("<tr><td>");
 		out.println("<table align='center' style='padding:10px'>");
@@ -55,11 +57,24 @@ public class Logic extends HttpServlet // Inheriting from HttpServlet makes this
 		out.println("</table>");
 		out.println("</table>");
 		out.println("</form>");
-
+		out.println("</box>");
 		out.println("</body>");
 		out.println("</html>");
 
 		out.close();
 	}  // end doGet()
-	
+
+
+	public void doPost (HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException	
+	{
+		response.setContentType("text/html");
+		PrintWriter out = response.getWriter();
+		
+
+	}
+
+
+
+
+
 }  // end Hello
