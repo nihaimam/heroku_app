@@ -24,15 +24,17 @@ public class Logic extends HttpServlet // Inheriting from HttpServlet makes this
 		out.println("hr { top: 10%; border: none; background-color: white; }");
 		out.println("h1{ color: black; text-align: center; top: 3%; }");
 		out.println("img{ display: block; margin-left: auto; margin-right: auto; }");
-		out.println("box { float: left; width: 400px; background-color: rgba(255, 0, 0, 0.2);");
+		out.println("ibox { float: left; width: 800px; background-color: rgba(255, 0, 0, 0.2);");
 		out.println("overflow:hidden; padding: 50px; margin-left: 30%; margin-top: 3%; color: black;");
-		out.println("box-shadow: 0 0 2px 2px white inset; }");
+                out.println("box-shadow: 0 0 2px 2px white inset; }");
+
+out.println("box {width: 800px; background-color: rgba(255, 0, 0, 0.2); position: absolute; top: 50%; left: 50%; margin-right: -50%;transform: translate(-50%, -50%) }");
+
 		out.println("</style>");
 
 		out.println("<body>");
-		out.println("<h1> SWE 432 Assignment 5 - </h1>");
-		out.println("<br><br>");
-		out.println("<p><strong>Predicate Logic</strong><p>");
+		out.println("<h1>** SWE 432 - Assignment 5 **</h1>");
+		out.println("<br>");
 		out.println("<form method='post' action='https://cs.gmu.edu:8443/offutt/servlet/formHandler'>");
 		out.println("<table border=3 style='background-color:#EFD4CF'>");
 		out.println("<tr><td>");
