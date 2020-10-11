@@ -95,16 +95,16 @@ public class TruthTable {
 					invertVal(i+1);
 				}else if ((!(i == 0) && !(i == temp.size()-1)) && isInt(i-1)){
 					if (isInt(i+1)){
-						if (temp.get(i).equals('+')){
+						if (temp.get(i).equals('|')){
 							orValues(i-1, i+1);
-						}else if (temp.get(i).equals('*')){
+						}else if (temp.get(i).equals('&')){
 							andValues(i-1, i+1);
 						}
 					}else if (temp.get(i+1).equals('!') && isInt(i+2)){
 						invertVal(i+2);
-						if (temp.get(i).equals('+')){
+						if (temp.get(i).equals('|')){
 							orValues(i-1, i+2);
-						}else if (temp.get(i).equals('*')){
+						}else if (temp.get(i).equals('&')){
 							andValues(i-1, i+2);
 						}
 						temp.set(i+1, "");

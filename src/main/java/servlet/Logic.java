@@ -128,6 +128,8 @@ public class Logic extends HttpServlet // Inheriting from HttpServlet makes this
 		out.println("</tr>");
 		out.println("</table>");
 
+		out.print(output);
+
                 out.println("</box>");
                 out.println("</body>");
                 out.println("</html>");
