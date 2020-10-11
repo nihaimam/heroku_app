@@ -3,11 +3,19 @@ import javax.servlet.http.*; // servlet library
 import java.io.*;
 import javax.servlet.annotation.WebServlet;
 
+import java.util.ArrayList;
+
 // The @WebServletannotation is used to declare a servlet
 @WebServlet(name = "Logic Predicate Servlet", urlPatterns = {"/Logic"})
 
 public class Logic extends HttpServlet // Inheriting from HttpServlet makes this a servlet
 {
+
+	ArrayList<EquationVariables> variables = new ArrayList<>();
+	ArrayList<Object> equation = new ArrayList<>();
+	ArrayList<Object> output = new ArrayList<>();
+
+
 
 	public void doGet (HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException
 	{
@@ -24,13 +32,7 @@ public class Logic extends HttpServlet // Inheriting from HttpServlet makes this
 		out.println("hr { top: 10%; border: none; background-color: white; }");
 		out.println("h1{ color: black; text-align: center; top: 3%; }");
 		out.println("img{ display: block; margin-left: auto; margin-right: auto; }");
-		//out.println("ibox { float: left; width: 800px; background-color: rgba(255, 0, 0, 0.2);");
-		//out.println("overflow:hidden; padding: 50px; margin-left: 30%; margin-top: 3%; color: black;");
-                //out.println("box-shadow: 0 0 2px 2px white inset; }");
-
 		out.println("box {width: 800px; background-color: rgba(255, 0, 0, 0.2); position: absolute; top: 10%; left: 20%;}");
-// margin-top: -100px; margin-left: -200px; }");
-
 		out.println("</style>");
 
 		out.println("<body>");
@@ -45,7 +47,7 @@ public class Logic extends HttpServlet // Inheriting from HttpServlet makes this
 		out.println("<tr>");
 		out.println("<h2 align='center'><b>Truth Table Generator<b></h2>");
 		out.println("<h3 align='center'>Please enter a logical expression</h3>");
-		out.println("<p align='center'>Allowed operators are:<br>! (not)<br>&& (and)<br>|| (or)</p>");
+		out.println("<p align='center'>Allowed operators are:<br>! (not)<br>& (and)<br>| (or)</p>");
 		out.println("<tr>");
 		out.println("<td>input:");
 		out.println("<td><input type='text' name='input'/>");
@@ -70,6 +72,66 @@ public class Logic extends HttpServlet // Inheriting from HttpServlet makes this
 	{
 		response.setContentType("text/html");
 		PrintWriter out = response.getWriter();
+		
+		String input = request.getParameter("input");
+		input = input.replaceAll(" ", "");
+		input = input.toLowerCase();
+
+		int ctr = 1;
+
+		//loop through the input and store everything in the correct place
+		for (int i = 0; i < input.length(); i++) {
+			// if the char is a variable
+			if (input.charAt(i) >= 'a' && input.charAt(i) <= 'z') {
+				EquationVariables tmp = new EquationVariables(input.charAt(i), true, ctr);
+				// add the variable to equations
+				variables.add(tmp);
+				equation.add(tmp);
+				ctr = ctr * 2;
+			}
+			else {
+				equation.add(input.charAt(i));
+			}
+		}
+
+		if (variables.size() > 0){
+			//Creates an instance of the truth table class with the proper parameters
+			TruthTable table = new TruthTable(variables, equation);
+			output = table.constructTable();
+		}else{
+			out.println("No variables found");
+		}
+
+		out.println("<html>");
+                out.println("<head>");
+                out.println("<title>Logic Predicate Servlet</title>");
+                out.println("</head>");
+		
+		out.println("<style>");
+                out.println("body { background-color: #EFD4CF; font-family: sans-serif; }");
+                out.println("hr { top: 10%; border: none; background-color: white; }");
+                out.println("h1{ color: black; text-align: center; top: 3%; }");
+                out.println("img{ display: block; margin-left: auto; margin-right: auto; }");
+                out.println("box {width: 800px; background-color: rgba(255, 0, 0, 0.2); position: absolute; top: 10%; left: 20%;}");
+                out.println("</style>");
+
+		out.println("<body>");
+                out.println("<box>");
+                out.println("<h1>** SWE 432 - Assignment 5 **</h1>");
+                out.println("<br>");
+		
+		out.println("<table>");
+		out.println("<tr>");
+		out.println("<th> In </th>");
+		out.println("<th> In </th>");
+		out.println("<th> Out </th>");
+		out.println("</tr>");
+		out.println("</table>");
+
+                out.println("</box>");
+                out.println("</body>");
+                out.println("</html>");
+		
 		
 
 	}
