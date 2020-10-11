@@ -120,7 +120,7 @@ public class Logic extends HttpServlet // Inheriting from HttpServlet makes this
                 out.println("<h1>** SWE 432 - Assignment 5 **</h1>");
                 out.println("<br>");
 		
-		out.println("<table align='center' border = 5>");
+		out.println("<table align='center' border = 2>");
 		out.println("<tr><td>");
 		out.println("<table align='center' style='padding:10px'>");
 		out.println("<tr>");
@@ -131,7 +131,7 @@ public class Logic extends HttpServlet // Inheriting from HttpServlet makes this
 		out.println("<br>");
 
 	
-		out.println("<table style = 'width:100%'>");
+		out.println("<table>");
 		//out.println("<tr>");
 			
 		//for (int a = 0; a <= variables.size(); a++){
@@ -142,19 +142,19 @@ public class Logic extends HttpServlet // Inheriting from HttpServlet makes this
 
 		int newline = 0;
 		int a = 0;
-		while (newline <= variables.size()){
-			newline++;
+		while (a < output.size()){
 			out.println("<tr>");
-			while (a < output.size()){	
+			while (newline <= variables.size()){
 				out.println("<th>");
 				out.println(output.get(a));
 				out.println("</th>");
-				a++;		
 			}
 			out.println("</tr>");
 			if (newline == variables.size()){
 				newline = 0;
-			}	
+			}
+			a++;
+			newline++;
 		}
 
 		
