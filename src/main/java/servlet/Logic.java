@@ -129,16 +129,7 @@ public class Logic extends HttpServlet // Inheriting from HttpServlet makes this
 		out.println(reqinput);
 		out.println("<br>");
 		out.println("<br>");
-
-	
 		out.println("<table>");
-		//out.println("<tr>");
-			
-		//for (int a = 0; a <= variables.size(); a++){
-		//	out.println("<th>");
-		//	out.println(output.get(a));
-		//	out.println("</th>");
-		//}
 
 		int newline = 0;
 		int a = 0;
@@ -152,13 +143,11 @@ public class Logic extends HttpServlet // Inheriting from HttpServlet makes this
 				newline++;
 			}
 			out.println("</tr>");
-			if (newline > variables.size()){
+			if (newline >= variables.size()){
 				newline = 0;
 			}
 		}
-
 		
-		//out.println("</tr>");
 		out.println("</table>");
 		out.println("</table>");
 		out.println("</table>");
@@ -171,4 +160,4 @@ public class Logic extends HttpServlet // Inheriting from HttpServlet makes this
 
 	}
 
-}  // end Hello
+}  // end 
