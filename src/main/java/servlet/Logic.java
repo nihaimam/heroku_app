@@ -87,6 +87,7 @@ public class Logic extends HttpServlet // Inheriting from HttpServlet makes this
 		
 		String var1 = request.getParameter("v1");
 		String op = request.getParameter("op");
+		op = op.replaceAll(" ","");
 		String var2 = request.getParameter("v2");
 
 		String input = var1 + " " + op + " " + var2;
@@ -118,7 +119,7 @@ public class Logic extends HttpServlet // Inheriting from HttpServlet makes this
                 equation.add(temp);
 
 
-                if (variables.size() >= 1) {
+                if (variables.size() > 1) {
                         Table table = new Table(variables, equation, inop);
                         output = table.constructTable();
                 }
@@ -128,7 +129,7 @@ public class Logic extends HttpServlet // Inheriting from HttpServlet makes this
 
 		// put values in a container for printing
 		Properties newvals = new Properties();
-		if (!(output.isEmpty())) {
+		if (!(output.isEmpty()) && validVar && validOp) {
 			newvals.put("tv1", var1);
 			newvals.put("tv2", var2);
 			newvals.put("tv3", "output");
