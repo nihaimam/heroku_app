@@ -16,9 +16,9 @@ import java.util.ArrayList;
 public class Logic extends HttpServlet // Inheriting from HttpServlet makes this a servlet
 {
 
-	ArrayList<Equation> variables = new ArrayList<>();
-	ArrayList<Object> equation = new ArrayList<>();
-	ArrayList<Object> output = new ArrayList<>();
+	//ArrayList<Equation> variables = new ArrayList<>();
+	//ArrayList<Object> equation = new ArrayList<>();
+	//ArrayList<Object> output = new ArrayList<>();
 
 	public void doGet (HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException
 	{
@@ -83,7 +83,11 @@ public class Logic extends HttpServlet // Inheriting from HttpServlet makes this
 		response.setContentType("text/html");
 		PrintWriter out = response.getWriter();
 
-		// variables equation output
+
+		ArrayList<Equation> variables = new ArrayList<>();
+		ArrayList<Object> equation = new ArrayList<>();
+		ArrayList<Object> output = new ArrayList<>();
+		
 		
 		String var1 = request.getParameter("v1");
 		String op = request.getParameter("op");
