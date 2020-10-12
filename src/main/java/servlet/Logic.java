@@ -16,10 +16,6 @@ import java.util.ArrayList;
 public class Logic extends HttpServlet // Inheriting from HttpServlet makes this a servlet
 {
 
-	//ArrayList<Equation> variables = new ArrayList<>();
-	//ArrayList<Object> equation = new ArrayList<>();
-	//ArrayList<Object> output = new ArrayList<>();
-
 	public void doGet (HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException
 	{
 		response.setContentType("text/html"); // Tells the web container what we're sending back
@@ -122,7 +118,7 @@ public class Logic extends HttpServlet // Inheriting from HttpServlet makes this
                 equation.add(temp);
 
 
-                if (variables.size() > 0) {
+                if (variables.size() < 2) {
                         Table table = new Table(variables, equation, inop);
                         output = table.constructTable();
                 }
@@ -136,23 +132,23 @@ public class Logic extends HttpServlet // Inheriting from HttpServlet makes this
 			newvals.put("tv1", var1);
 			newvals.put("tv2", var2);
 			newvals.put("tv3", "output");
+			newvals.put("zero", output.get(0));
+			newvals.put("one", output.get(1));
+			newvals.put("two", output.get(2));
+			newvals.put("three", output.get(3));
+			newvals.put("four", output.get(4));
+			newvals.put("five", output.get(5));
+                	newvals.put("six", output.get(6));
+                	newvals.put("seven", output.get(7));
+                	newvals.put("eight", output.get(8));
+                	newvals.put("nine", output.get(9));
+               		newvals.put("ten", output.get(10));
+                	newvals.put("eleven", output.get(11));
 		}
 		else {
 			validity = false;
 		}
 		
-		/*newvals.put("zero", output.get(0));
-		newvals.put("one", output.get(1));
-		newvals.put("two", output.get(2));
-		newvals.put("three", output.get(3));
-		newvals.put("four", output.get(4));
-		newvals.put("five", output.get(5));
-		newvals.put("six", output.get(6));
-		newvals.put("seven", output.get(7));
-		newvals.put("eight", output.get(8));
-		newvals.put("nine", output.get(9));
-		newvals.put("ten", output.get(10));
-		newvals.put("eleven", output.get(11));*/
 
 
 		// *************** HTML ***************
@@ -194,32 +190,56 @@ out.println(output);
 		out.println("<th id='tv1'>");
 		out.print(newvals.getProperty ("tv1"));
 		out.print("</th>");
-		out.println("<th id='tv2'> </th>");
+		out.println("<th id='tv2'>");
                 out.print(newvals.getProperty ("tv2"));
                 out.print("</th>");
-		out.println("<th id='tv3'> </th>");
+		out.println("<th id='tv3'>");
                 out.print(newvals.getProperty ("tv3"));
                 out.print("</th>");
 		out.println("</tr>");
 		out.println("<tr>");
-		out.println("<th id='zero'> </th>");
-		out.println("<th id='one'> </th>");
-               	out.println("<th id='two'> </th>");
+		out.println("<th id='zero'>");
+                out.print(newvals.getProperty ("zero"));
+                out.print("</th>");
+		out.println("<th id='one'>");
+                out.print(newvals.getProperty ("one"));
+                out.print("</th>");
+               	out.println("<th id='two'>");
+                out.print(newvals.getProperty ("two"));
+                out.print("</th>");
                 out.println("</tr>");
                	out.println("<tr>");
-                out.println("<th id='three'> </th>");
-                out.println("<th id='four'> </th>");
-                out.println("<th id='five'> </th>");
+                out.println("<th id='three'>");
+                out.print(newvals.getProperty ("three"));
+                out.print("</th>");
+                out.println("<th id='four'>");
+                out.print(newvals.getProperty ("four"));
+                out.print("</th>");
+                out.println("<th id='five'>");
+                out.print(newvals.getProperty ("five"));
+                out.print("</th>");                
+		out.println("</tr>");
+               	out.println("<tr>");
+                out.println("<th id='six'>");
+                out.print(newvals.getProperty ("six"));
+                out.print("</th>");
+                out.println("<th id='seven'>");
+                out.print(newvals.getProperty ("seven"));
+                out.print("</th>");
+                out.println("<th id='eight'>");
+                out.print(newvals.getProperty ("eight"));
+                out.print("</th>");
                 out.println("</tr>");
                	out.println("<tr>");
-                out.println("<th id='six'> </th>");
-                out.println("<th id='seven'> </th>");
-                out.println("<th id='eight'> </th>");
-                out.println("</tr>");
-               	out.println("<tr>");
-                out.println("<th id='nine'> </th>");
-                out.println("<th id='ten'> </th>");
-                out.println("<th id='eleven'> </th>");
+                out.println("<th id='nine'>");
+                out.print(newvals.getProperty ("nine"));
+                out.print("</th>");
+                out.println("<th id='ten'>");
+                out.print(newvals.getProperty ("ten"));
+                out.print("</th>");
+                out.println("<th id='eleven'>");
+                out.print(newvals.getProperty ("eleven"));
+                out.print("</th>");
                 out.println("</tr>");
 		out.println("</table>");
 		out.println("</body");
