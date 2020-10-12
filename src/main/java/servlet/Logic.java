@@ -132,7 +132,7 @@ public class Logic extends HttpServlet // Inheriting from HttpServlet makes this
 			newvals.put("tv1", var1);
 			newvals.put("tv2", var2);
 			newvals.put("tv3", "output");
-			newvals.put("zero", output.get(0));
+			newvals.put("zero", output.get(0).toString());
 			newvals.put("one", output.get(1));
 			newvals.put("two", output.get(2));
 			newvals.put("three", output.get(3));
@@ -176,7 +176,7 @@ out.println(input);
 out.println(validOp);
 out.println(validVar);
 out.println(validity);
-out.println(output);
+out.println(output.get(0));
 
 		out.println("<p><strong>YOU ENTERED:</strong><br><br>");
 		if (!validOp) { out.print("invalid operation"); }
