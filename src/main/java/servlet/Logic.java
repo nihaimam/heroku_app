@@ -167,6 +167,17 @@ public class Logic extends HttpServlet // Inheriting from HttpServlet makes this
 		out.println("<body>");
 		out.println("<h1>** SWE 432 - Assignment 5 **</h1>");
 		out.println("<br>");
+
+out.println(var1);
+out.println(op);
+out.println(var2);
+out.println(inop);
+out.println(input);
+out.println(validOp);
+out.println(validVar);
+out.println(validity);
+out.println(output);
+
 		out.println("<p><strong>YOU ENTERED:</strong><br><br>");
 		if (!validOp) { out.print("invalid operation"); }
 		else if (!validVar) { out.print("invalid or missing variables"); }
