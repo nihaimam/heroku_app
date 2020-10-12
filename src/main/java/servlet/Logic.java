@@ -60,7 +60,7 @@ public class Logic extends HttpServlet // Inheriting from HttpServlet makes this
 		out.println("</li>");
 		out.println("<li>");
 		out.println("<label for='variable_2'>Variable 2:</label>");
-		out.println("<input type='text' id='v2' name='va2'/>");
+		out.println("<input type='text' id='v2' name='v2'/>");
 		out.println("</li>");
 		out.println("<li class='button'>");
 		out.println("<button type='submit'>Submit</button>");
@@ -88,21 +88,25 @@ public class Logic extends HttpServlet // Inheriting from HttpServlet makes this
 		String var1 = request.getParameter("v1");
 		String op = request.getParameter("op");
 		String var2 = request.getParameter("v2");
+
 		String input = var1 + " " + op + " " + var2;
-		String validOp;
-		String validVar;		
+
+		String inop = op;
+		boolean validOp = true;
+		boolean validVar = true;
+		boolean validity = true;		
 
 		if ((op.equals("&")) || (op.equals("&&")) || (op.equals("and")) || (op.equals("And")) || (op.equals("AND"))) {
-			validOp = "and";
+			inop = "and";
 		}
 		else if ((op.equals("V")) || (op.equals("v")) || (op.equals("|")) || (op.equals("or")) || (op.equals("Or")) || (op.equals("OR"))) {
-			validOp = "or";
+			inop = "or";
 		}
 		else if ((op.equals("xor")) || (op.equals("Xor")) || (op.equals("x"))) {
-			validOp = "xor";
+			inop = "xor";
 		}
 		else {
-			validOp = "invalid";
+			validOp = false;
 		}
 
                 Equation temp = new Equation(var1,true, 1);
@@ -115,19 +119,25 @@ public class Logic extends HttpServlet // Inheriting from HttpServlet makes this
 
 
                 if (variables.size() > 0) {
-                        Table table = new Table(variables, equation, "xor");
+                        Table table = new Table(variables, equation, inop);
                         output = table.constructTable();
                 }
                 else {
-			validVar = "invalid";
+			validVar = false;
 		}	
 
-		/*// put values in a container for printing
+		// put values in a container for printing
 		Properties newvals = new Properties();
-		newvals.put("tv1", var1);
-		newvals.put("tv2", var2);
-		newvals.put("tv3", "output");
-		newvals.put("zero", output.get(0));
+		if (output != null) {
+			newvals.put("tv1", var1);
+			newvals.put("tv2", var2);
+			newvals.put("tv3", "output");
+		}
+		else {
+			validity = false;
+		}
+		
+		/*newvals.put("zero", output.get(0));
 		newvals.put("one", output.get(1));
 		newvals.put("two", output.get(2));
 		newvals.put("three", output.get(3));
@@ -157,9 +167,12 @@ public class Logic extends HttpServlet // Inheriting from HttpServlet makes this
 		out.println("<body>");
 		out.println("<h1>** SWE 432 - Assignment 5 **</h1>");
 		out.println("<br>");
-		out.println("<p><strong>YOU ENTERED:</strong><br>");
-		out.print(input);
-		out.print("</p><br>");
+		out.println("<p><strong>YOU ENTERED:</strong><br><br>");
+		if (!validOp) { out.print("invalid operation"); }
+		else if (!validVar) { out.print("invalid or missing variables"); }
+		else if (!validity) { out.print("invalid logical expression"); }
+		else { out.print(input); }
+		out.print("</p>");
 		out.println(output);
 		out.println("<table>");
 		out.println("<tr>");
