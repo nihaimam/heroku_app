@@ -128,7 +128,7 @@ public class Logic extends HttpServlet // Inheriting from HttpServlet makes this
 
 		// put values in a container for printing
 		Properties newvals = new Properties();
-		if (output != null) {
+		if ((output != null) && (output.size() == 12)) {
 			newvals.put("tv1", var1);
 			newvals.put("tv2", var2);
 			newvals.put("tv3", "output");
