@@ -170,7 +170,8 @@ public class Logic extends HttpServlet // Inheriting from HttpServlet makes this
 		out.println("<h1>** SWE 432 - Assignment 5 **</h1>");
 		out.println("<br>");
 		out.println("<p>");
-		out.print("<button onclick='document.location='https://swe432servlet.herokuapp.com/Logic''>reset</button><br><br>");
+		out.print("<form action='https://google.com'><input type='submit' value='Go to Google' /></form><br><br>");
+		//out.print("<button onclick='document.location='https://swe432servlet.herokuapp.com/Logic''>reset</button><br><br>");
 		out.print("<strong>YOU ENTERED:</strong><br><br>");
 		if (!validOp) { out.print("invalid operation"); }
 		else if (!validVar) { out.print("invalid or missing variables"); }
