@@ -122,11 +122,11 @@ public class Logic extends HttpServlet // Inheriting from HttpServlet makes this
 			validVar = "invalid";
 		}	
 
-		// put values in a container for printing
+		/*// put values in a container for printing
 		Properties newvals = new Properties();
 		newvals.put("tv1", var1);
-		newvals.put("tv2", op);
-		newvals.put("tv3", var2);
+		newvals.put("tv2", var2);
+		newvals.put("tv3", "output");
 		newvals.put("zero", output.get(0));
 		newvals.put("one", output.get(1));
 		newvals.put("two", output.get(2));
@@ -138,65 +138,10 @@ public class Logic extends HttpServlet // Inheriting from HttpServlet makes this
 		newvals.put("eight", output.get(8));
 		newvals.put("nine", output.get(9));
 		newvals.put("ten", output.get(10));
-		newvals.put("eleven", output.get(11));
+		newvals.put("eleven", output.get(11));*/
 
 
 		// *************** HTML ***************
-		out.println("<html>");
-                out.println("<head>");
-                out.println("<title>Logic Predicate Servlet</title>");
-                out.println("</head>");
-		
-		out.println("<style>");
-                out.println("body { background-color: #EFD4CF; font-family: sans-serif; }");
-                out.println("hr { top: 10%; border: none; background-color: white; }");
-                out.println("h1{ color: black; text-align: center; top: 3%; }");
-                out.println("img{ display: block; margin-left: auto; margin-right: auto; }");
-                out.println("box {width: 800px; background-color: rgba(255, 0, 0, 0.2); position: absolute; top: 10%; left: 20%;}");
-                out.println("</style>");
-
-		out.println("<body>");
-                out.println("<box>");
-                out.println("<h1>** SWE 432 - Assignment 5 **</h1>");
-                out.println("<br>");
-		
-		out.println("<table align='center' border = 2>");
-		out.println("<tr><td>");
-		out.println("<table align='center' style='padding:10px'>");
-		out.println("<tr>");
-		out.println("<h2 align='center'><b>You entered:<b></h2>");
-		out.println("<br>");
-		out.println(input);
-		out.println("<br>");
-		out.println("<br>");
-		out.println("<table>");
-
-		int newline = 0;
-		int a = 0;
-		while (a < output.size()){
-			out.println("<tr>");
-			while (newline <= variables.size()){
-				out.println("<th>");
-				out.println(output.get(a));
-				out.println("</th>");
-				a++;
-				newline++;
-			}
-			out.println("</tr>");
-			if (newline >= variables.size()){
-				newline = 0;
-			}
-		}
-		
-		out.println("</table>");
-		out.println("</table>");
-		out.println("</table>");
-
-                out.println("</box>");
-                out.println("</body>");
-                out.println("</html>");
-		////////
-		
 		out.println("<html>");
 		out.println("<head>");
 		out.println("<title>Truth Table Generator</title>");
@@ -215,6 +160,7 @@ public class Logic extends HttpServlet // Inheriting from HttpServlet makes this
 		out.println("<p><strong>YOU ENTERED:</strong><br>");
 		out.print(input);
 		out.print("</p><br>");
+		out.println(output);
 		out.println("<table>");
 		out.println("<tr>");
 		out.println("<th id='tv1'> </th>");
