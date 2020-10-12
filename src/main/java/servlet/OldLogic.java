@@ -13,7 +13,7 @@ import java.util.ArrayList;
 // The @WebServletannotation is used to declare a servlet
 @WebServlet(name = "Logic Predicate Servlet", urlPatterns = {"/Logic"})
 
-public class Logic extends HttpServlet // Inheriting from HttpServlet makes this a servlet
+public class OldLogic extends HttpServlet // Inheriting from HttpServlet makes this a servlet
 {
 
 	ArrayList<EquationVariables> variables = new ArrayList<>();
