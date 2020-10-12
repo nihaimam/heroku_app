@@ -118,7 +118,7 @@ public class Logic extends HttpServlet // Inheriting from HttpServlet makes this
                 equation.add(temp);
 
 
-                if (variables.size() < 2) {
+                if (variables.size() >= 1) {
                         Table table = new Table(variables, equation, inop);
                         output = table.constructTable();
                 }
