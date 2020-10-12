@@ -1,7 +1,12 @@
-import javax.servlet.*; // servlet library
-import javax.servlet.http.*; // servlet library
-import java.io.*;
+// Import Servlet Libraries
+import javax.servlet.*;
+import javax.servlet.http.*;
 import javax.servlet.annotation.WebServlet;
+
+// Import Java Libraries
+import java.io.*;
+import java.util.*;
+import java.lang.*;
 
 import java.util.ArrayList;
 
@@ -15,8 +20,6 @@ public class Logic extends HttpServlet // Inheriting from HttpServlet makes this
 	ArrayList<Object> equation = new ArrayList<>();
 	ArrayList<Object> output = new ArrayList<>();
 
-
-
 	public void doGet (HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException
 	{
 		response.setContentType("text/html"); // Tells the web container what we're sending back
@@ -28,39 +31,46 @@ public class Logic extends HttpServlet // Inheriting from HttpServlet makes this
 		out.println("</head>");
 		
 		out.println("<style>");
-		out.println("body { background-color: #EFD4CF; font-family: sans-serif; }");
-		out.println("hr { top: 10%; border: none; background-color: white; }");
+		out.println("body { background-color: #D1F2EB; font-family: sans-serif; }");
+		out.println("form { margin: 0 auto; width: 400px; padding: 2em; border: 2px solid #000; border-radius: 5em; background-color: #FFFFFF; }");
+		out.println("ul { list-style: none; padding: 0; margin: 0; }");
+		out.println("li { margin-top: 1em; }");
+		out.println("label { display: inline-block; width: 90px; text-align: right; }");
+		out.println("input{ font: 1em sans-serif; width: 275px; box-sizing: border-box; border: 2px solid #999; background-color: #D1F2EB; }");
 		out.println("h1{ color: black; text-align: center; top: 3%; }");
-		out.println("img{ display: block; margin-left: auto; margin-right: auto; }");
-		out.println("box {width: 800px; background-color: rgba(255, 0, 0, 0.2); position: absolute; top: 10%; left: 20%;}");
+		out.println(".button { padding-left: 90px; }");
+		out.println("button { margin-left: 0.5em; }");
 		out.println("</style>");
 
 		out.println("<body>");
-		out.println("<box>");
 		out.println("<h1>** SWE 432 - Assignment 5 **</h1>");
 		out.println("<br>");
-		out.println("<form method=\"post\"");
-		//out.println("<form method='post' action='https://cs.gmu.edu:8443/offutt/servlet/formHandler'>");
-		out.println("<table border=5>");
-		out.println("<tr><td>");
-		out.println("<table align='center' style='padding:10px'>");
-		out.println("<tr>");
-		out.println("<h2 align='center'><b>Truth Table Generator<b></h2>");
-		out.println("<h3 align='center'>Please enter a logical expression</h3>");
-		out.println("<p align='center'>Allowed operators are:<br>! (not)<br>& (and)<br>| (or)</p>");
-		out.println("<tr>");
-		out.println("<td>input:");
-		out.println("<td><input type='text' name='input'/>");
-		out.println("</tr>");
-		out.println("</table>");		
-		out.println("<table align='center' style='padding:10px'>");
-		out.println("<tr>");
-		out.println("<td><input type='submit' name='Print Tables' value='submit'>");
-		out.println("</tr>");
-		out.println("</table>");
-		out.println("</table>");
+		out.println("<ul>");
+		out.println("<form method=\"post\">");
+		out.println("<li>");
+		out.println("<p><strong>TRUTH TABLE GENERATOR</strong><br>please enter a variable and an operator <br><br>allowed operators are <br>(and)  ^ / & / && / and<br>(or)   v / | / or<br>(xor)  xor / ⊕<br>(not)	 ! / ~</p><br>");
+		out.println("</li>");
+		out.println("<li>");
+		out.println("<label for='variable_1'>Variable 1:</label>");
+		out.println("<input type='text' id='v1' name='variable_1'/>");
+		out.println("</li>");
+		out.println("<li>");
+		out.println("<label for='operation'>Operator:</label>");
+		out.println("<input type='text' id='operator' name='operator'/>");
+		out.println("</li>");
+		out.println("<li>");
+		out.println("<label for='variable_2'>Variable 2:</label>");
+		out.println("<input type='text' id='v2' name='variable_2'/>");
+		out.println("</li>");
+		out.println("<li class='button'>");
+		out.println("<button type='submit'>Submit</button>");
+		out.println("</li");
+		out.println("<li>");
+		out.println("<br><br>");
+		out.println("<p><strong>CONTRIBUTION SUMMARY</strong><br>Beth, Tori, Niha<br><br>we all did stuff</p>");
+		out.println("</li>");
+		out.println("</ul>");
 		out.println("</form>");
-		out.println("</box>");
 		out.println("</body>");
 		out.println("</html>");
 
@@ -101,6 +111,8 @@ public class Logic extends HttpServlet // Inheriting from HttpServlet makes this
 		}else{
 			out.println("No variables found");
 		}
+
+		Properties newvals = new Properties();
 
 		out.println("<html>");
                 out.println("<head>");
