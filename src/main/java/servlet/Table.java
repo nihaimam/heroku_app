@@ -22,7 +22,8 @@ public class Table {
 				if (variables.get(j).getWeight() == 1) { variables.get(j).setState(); }
 				retlist.add((variables.get(j).getState() ? 1 : 0));
 			}
-			if (!parse()) { return new ArrayList<>(); }				
+			parse();
+			//if (!parse()) { return new ArrayList<>(); }				
 		}
 		return retlist;
 	}
