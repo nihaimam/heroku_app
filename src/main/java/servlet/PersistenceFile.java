@@ -76,12 +76,12 @@ public class PersistenceFile extends HttpServlet{
           }
      }
      
-/*     if(bank == null){
+     if(bank == null){
        error+= "<li>Bank Information is required.<li>";
        age = "";
      }
 
-     if(ssn == null){
+/*     if(ssn == null){
        error+= "<li>Social Security Number is required.<li>";
        age = "";
      }
@@ -104,7 +104,7 @@ public class PersistenceFile extends HttpServlet{
      if (error.length() == 0){
        PrintWriter entriesPrintWriter =
           new PrintWriter(new FileWriter(RESOURCE_FILE, true), true);
-       entriesPrintWriter.println(name+VALUE_SEPARATOR+age);
+       entriesPrintWriter.println(name+VALUE_SEPARATOR+age+VALUE_SEPARATOR+bank);
        entriesPrintWriter.close();
 
        printHead(out);
@@ -175,26 +175,23 @@ public class PersistenceFile extends HttpServlet{
      out.println(" <table>");
      out.println("  <tr>");
      out.println("   <td>Name:</td>");
-     out.println("   <td><input type=\"text\" name=\""+Data.NAME.name()
-      +"\" value=\""+name+"\" size=30 required></td>");
+     out.println("   <td><input type=\"text\" name=\""+Data.NAME.name() +"\" value=\"name\" size=30 required></td>");
      out.println("  </tr>");
      out.println("  <tr>");
      out.println("   <td>Age:</td>");
-     out.println("   <td><input type=\"text\"  name=\""+Data.AGE.name()
-      +"\" oninput=\"this.value=this.value.replace(/[^0-9]/g,'');\" value=\""
-      +age+"\" size=3 required></td>");
+     out.println("   <td><input type=\"text\"  name=\""+Data.AGE.name() +"\" oninput=\"this.value=this.value.replace(/[^0-9]/g,'');\" value=\"age\" size=3 required></td>");
      out.println("  </tr>");
      
      out.println("  <tr>");
      out.println("   <td>Bank Information:</td>");
      out.println("   <td><input type=\"text\" name=\""+Data.BANK.name()
-      +"\" value=\""+name+"\" size=30 required></td>");
+      +"\" value=\"bank info\" size=30 required></td>");
      out.println("  </tr>");
      
      out.println("  <tr>");
      out.println("   <td>Social Security Number:</td>");
      out.println("   <td><input type=\"text\"  name=\""+Data.SSN.name()
-      +"\" oninput=\"this.value=this.value.replace(/[^0-9]/g,'');\" value=\"text\" size=9 required></td>");
+      +"\" oninput=\"this.value=this.value.replace(/[^0-9]/g,'');\" value=\"ssn\" size=9 required></td>");
      out.println("  </tr>");
      
      out.println(" </table>");
