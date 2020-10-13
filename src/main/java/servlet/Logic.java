@@ -181,7 +181,7 @@ public class Logic extends HttpServlet // Inheriting from HttpServlet makes this
 		out.println("<table>");
 		out.println("<tr>");
 		out.println("<th id='tv1'>");
-		out.print(newvals.getProperty ("tv1"));
+		if (newvals.getProperty ("tv1") != "null") out.print(newvals.getProperty ("tv1"));
 		out.print("</th>");
 		out.println("<th id='tv2'>");
                 out.print(newvals.getProperty ("tv2"));
