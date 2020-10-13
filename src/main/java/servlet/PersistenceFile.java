@@ -81,14 +81,14 @@ public class PersistenceFile extends HttpServlet{
        age = "";
      }
 
-/*     if(ssn == null){
+     if(ssn == null){
        error+= "<li>Social Security Number is required.<li>";
        age = "";
      }
      else{
           try{
             Integer ssnInteger =new Integer(ssn);
-	    if (String.valueOf(ssnInteger).length() < 9){
+	    if (String.valueOf(ssnInteger).length() != 9){
 		error+= "<li>SSN must be 9 digits long.</li>";
 		ssn = "";
 	    }
@@ -97,14 +97,14 @@ public class PersistenceFile extends HttpServlet{
             ssn = "";
           }
      }
-*/
+
      response.setContentType("text/html");
      PrintWriter out = response.getWriter();
 
      if (error.length() == 0){
        PrintWriter entriesPrintWriter =
           new PrintWriter(new FileWriter(RESOURCE_FILE, true), true);
-       entriesPrintWriter.println(name+VALUE_SEPARATOR+age+VALUE_SEPARATOR+bank);
+       entriesPrintWriter.println(name+VALUE_SEPARATOR+age+VALUE_SEPARATOR+bank+VALUE_SEPARATOR+ssn);
        entriesPrintWriter.close();
 
        printHead(out);
