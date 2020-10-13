@@ -20,7 +20,7 @@ import javax.servlet.annotation.WebServlet;
 
 @WebServlet(name = "PersistenceFile", urlPatterns = {"/file"})
 public class PersistenceFile extends HttpServlet{
-  static enum Data {AGE, NAME};
+  static enum Data {AGE, NAME, BANK, SSN};
   static String RESOURCE_FILE = "entries.txt";
   static final String VALUE_SEPARATOR = ";";
 
@@ -45,6 +45,8 @@ public class PersistenceFile extends HttpServlet{
   {
      String name = request.getParameter(Data.NAME.name());
      String age = request.getParameter(Data.AGE.name());
+     String bank = request.getParameter(Data.BANK.name());
+     String ssn = request.getParameter(Data.SSN.name());
 
      String error = "";
      if(name == null){
@@ -55,7 +57,8 @@ public class PersistenceFile extends HttpServlet{
      if(age == null){
        error+= "<li>Age is required.<li>";
        age = "";
-     }else{
+     }
+     else{
           try{
             Integer ageInteger =new Integer(age);
             if(ageInteger<1){
@@ -72,7 +75,29 @@ public class PersistenceFile extends HttpServlet{
             age = "";
           }
      }
+     
+/*     if(bank == null){
+       error+= "<li>Bank Information is required.<li>";
+       age = "";
+     }
 
+     if(ssn == null){
+       error+= "<li>Social Security Number is required.<li>";
+       age = "";
+     }
+     else{
+          try{
+            Integer ssnInteger =new Integer(ssn);
+	    if (String.valueOf(ssnInteger).length() < 9){
+		error+= "<li>SSN must be 9 digits long.</li>";
+		ssn = "";
+	    }
+          }catch (Exception e) {
+            error+= "<li>SSN must be an integer greater than 0.</li>";
+            ssn = "";
+          }
+     }
+*/
      response.setContentType("text/html");
      PrintWriter out = response.getWriter();
 
@@ -159,6 +184,19 @@ public class PersistenceFile extends HttpServlet{
       +"\" oninput=\"this.value=this.value.replace(/[^0-9]/g,'');\" value=\""
       +age+"\" size=3 required></td>");
      out.println("  </tr>");
+     
+     out.println("  <tr>");
+     out.println("   <td>Bank Information:</td>");
+     out.println("   <td><input type=\"text\" name=\""+Data.BANK.name()
+      +"\" value=\""+name+"\" size=30 required></td>");
+     out.println("  </tr>");
+     
+     out.println("  <tr>");
+     out.println("   <td>Social Security Number:</td>");
+     out.println("   <td><input type=\"text\" name=\""+Data.SSN.name()
+      +"\" value=\""+name+"\" size=30 required></td>");
+     out.println("  </tr>");
+
      out.println(" </table>");
      out.println(" <br>");
      out.println(" <br>");
@@ -186,6 +224,8 @@ public class PersistenceFile extends HttpServlet{
         out.println("  <tr>");
         out.println("   <th>Name</th>");
         out.println("   <th>Age</th>");
+	out.println("   <th>Bank Information</th>");
+	out.println("   <th>Social Security Number</th>");
         out.println("  </tr>");
         File file = new File(resourcePath);
         if(!file.exists()){
