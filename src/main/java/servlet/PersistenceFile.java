@@ -20,7 +20,7 @@ import javax.servlet.annotation.WebServlet;
 
 @WebServlet(name = "PersistenceFile", urlPatterns = {"/file"})
 public class PersistenceFile extends HttpServlet{
-  static enum Data {AGE, NAME, BANK, SSN};
+  static enum Data {AGE, NAME, BANK, SSN, MMN};
   static String RESOURCE_FILE = "entries.txt";
   static final String VALUE_SEPARATOR = ";";
 
@@ -47,11 +47,17 @@ public class PersistenceFile extends HttpServlet{
      String age = request.getParameter(Data.AGE.name());
      String bank = request.getParameter(Data.BANK.name());
      String ssn = request.getParameter(Data.SSN.name());
+     String mmn = request.getParameter(Data.MMN.name());
 
      String error = "";
      if(name == null){
        error= "<li>Name is required</li>";
        name = "";
+     }
+	
+     if(mmn == null){
+	error= "<li>Mother's maiden name is required</li>";
+	mmn = "";
      }
 
      if(age == null){
@@ -89,7 +95,7 @@ public class PersistenceFile extends HttpServlet{
           try{
             Integer ssnInteger =new Integer(ssn);
 	    if (String.valueOf(ssnInteger).length() != 9){
-		error+= "<li>SSN must be 9 digits long.</li>";
+		error+= "<li>SSN must be 9 digits longi.</li>";
 		ssn = "";
 	    }
           }catch (Exception e) {
@@ -104,7 +110,7 @@ public class PersistenceFile extends HttpServlet{
      if (error.length() == 0){
        PrintWriter entriesPrintWriter =
           new PrintWriter(new FileWriter(RESOURCE_FILE, true), true);
-       entriesPrintWriter.println(name+VALUE_SEPARATOR+age+VALUE_SEPARATOR+bank+VALUE_SEPARATOR+ssn);
+       entriesPrintWriter.println(name+VALUE_SEPARATOR+age+VALUE_SEPARATOR+bank+VALUE_SEPARATOR+ssn+VALUE_SEPARATOR+mmn);
        entriesPrintWriter.close();
 
        printHead(out);
@@ -189,8 +195,12 @@ public class PersistenceFile extends HttpServlet{
      
      out.println("  <tr>");
      out.println("   <td>Social Security Number:</td>");
-     out.println("   <td><input type=\"text\"  name=\""+Data.SSN.name()
-      +"\" oninput=\"this.value=this.value.replace(/[^0-9]/g,'');\" size=9 required></td>");
+     out.println("   <td><input type=\"text\"  name=\""+Data.SSN.name() +"\" oninput=\"this.value=this.value.replace(/[^0-9]/g,'');\" size=9 required></td>");
+     out.println("  </tr>");
+
+     out.println("  <tr>");
+     out.println("   <td>Mother's Maiden Name:</td>");
+     out.println("   <td><input type=\"text\" name=\""+Data.MMN.name() +"\" size=30 required></td>");
      out.println("  </tr>");
      
      out.println(" </table>");
