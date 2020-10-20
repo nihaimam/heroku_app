@@ -66,6 +66,7 @@ public void doGet (HttpServletRequest request, HttpServletResponse response)
    out.println(" Value: ");
    out.println(" <input type=\"text\" size=\"10\" name=\"attrib_value_1\">");
 
+   out.println("<br>");
    out.println(" Food: ");
    out.println(" <input type=\"text\" size=\"10\" name=\"attrib_food\">");
 
