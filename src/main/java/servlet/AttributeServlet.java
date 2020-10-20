@@ -37,7 +37,7 @@ public void doGet (HttpServletRequest request, HttpServletResponse response)
 
       // Create a link so the user can create a new session.
       // The link will have a parameter builtin
-      String lifeCycleURL = "/offutt/servlet/sessionLifeCycle";
+      String lifeCycleURL = "/attribute";
       out.println("<a href=\"" + lifeCycleURL + "?action=newSession\">");
       out.println("Create new session</A>");
 
@@ -112,13 +112,13 @@ public void doGet (HttpServletRequest request, HttpServletResponse response)
 
       out.println(" <br><input type=\"checkbox\" name=\"attrib_remove\">Remove");
       out.println(" <input type=\"submit\" name=\"update\" value=\"Update\">");
-      out.println("</form>");
-      out.println("<hr>");
 
-
-      String lifeCycleURL = "/offutt/servlet/sessionLifeCycle";
+      String lifeCycleURL = "/attribute";
       out.print  ("<br><br><a href=\"" + lifeCycleURL + "?action=invalidate\">");
       out.println("Invalidate the session</a>");
+
+      out.println("</form>");
+      out.println("<hr>");
 
       out.println("Attributes in this session:");
       Enumeration e = session.getAttributeNames();
