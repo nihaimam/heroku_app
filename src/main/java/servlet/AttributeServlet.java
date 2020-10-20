@@ -19,20 +19,26 @@ public void doGet (HttpServletRequest request, HttpServletResponse response)
    HttpSession session = request.getSession();
 
    String name   = request.getParameter("attrib_name");
-   String value  = request.getParameter("attrib_value");
+   String val_1  = request.getParameter("attrib_value_1");
+   String food   = request.getParameter("attrib_food");
+   String val_2  = request.getParameter("attrib_value_2");
    String remove = request.getParameter("attrib_remove");
 
    if (remove != null && remove.equals("on"))
    {
       session.removeAttribute(name);
+      session.removeAttribute(food);
    }
    else
    {
-      if ((name != null && name.length() > 0) && (value != null && value.length() > 0))
+      if ((name != null && name.length() > 0) && (val_1 != null && val_1.length() > 0))
       {
-         session.setAttribute(name, value);
+         session.setAttribute(name, val_1);
       }
-
+      if ((food != null && food.length() > 0) && (val_2 != null && val_2.length() > 0))
+      {
+         session.setAttribute(food, val_2);
+      }
    }
 
    response.setContentType("text/html");
@@ -58,7 +64,13 @@ public void doGet (HttpServletRequest request, HttpServletResponse response)
    out.println(" <input type=\"text\" size=\"10\" name=\"attrib_name\">");
 
    out.println(" Value: ");
-   out.println(" <input type=\"text\" size=\"10\" name=\"attrib_value\">");
+   out.println(" <input type=\"text\" size=\"10\" name=\"attrib_value_1\">");
+
+   out.println(" Food: ");
+   out.println(" <input type=\"text\" size=\"10\" name=\"attrib_food\">");
+
+   out.println(" Value: ");
+   out.println(" <input type=\"text\" size=\"10\" name=\"attrib_value_2\">");
 
    out.println(" <br><input type=\"checkbox\" name=\"attrib_remove\">Remove");
    out.println(" <input type=\"submit\" name=\"update\" value=\"Update\">");
@@ -69,13 +81,21 @@ public void doGet (HttpServletRequest request, HttpServletResponse response)
    Enumeration e = session.getAttributeNames();
    while (e.hasMoreElements())
    {
-      String att_name  = (String) e.nextElement();
-      String att_value = (String) session.getAttribute(att_name);
+      String att_name    = (String) e.nextElement();
+      String att_value_1 = (String) session.getAttribute(att_name);
+     
+      String att_food    = (String) e.nextElement();
+      String att_value_2 = (String) session.getAttribute(att_food);
 
       out.print  ("<br><b>Name:</b> ");
       out.println(att_name);
       out.print  ("<br><b>Value:</b> ");
-      out.println(att_value);
+      out.println(att_value_1);
+
+      out.print  ("<br><b>Food:</b> ");
+      out.println(att_food);
+      out.print  ("<br><b>Value:</b> ");
+      out.println(att_value_2);
    } //end while
 
    out.println("</body>");
