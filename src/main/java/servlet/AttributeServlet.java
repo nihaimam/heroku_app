@@ -26,9 +26,16 @@ public void doGet (HttpServletRequest request, HttpServletResponse response)
 
    if (remove != null && remove.equals("on"))
    {
-      session.removeAttribute(name);
-      session.removeAttribute(food);
+      if (name != null)
+      {
+         session.removeAttribute(name);
+      }
+      if (food != null)
+      {
+         session.removeAttribute(food);
+      }
    }
+   
    else
    {
       if ((name != null && name.length() > 0) && (val_1 != null && val_1.length() > 0))
