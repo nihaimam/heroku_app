@@ -301,7 +301,7 @@ out.println("<p> THIS IS POOPY </p>");
 		// *************** JSON ***************
 		EntryManager entryManager = new EntryManager();
 		entryManager.setFilePath(RESOURCE_FILE);
-		Entries newEntries=entryManager.save(var1, op, var2)
+		Entries newEntries=entryManager.save(var1, op, var2);
 		
 		
 
