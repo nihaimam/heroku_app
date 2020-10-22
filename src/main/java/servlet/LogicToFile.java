@@ -53,20 +53,18 @@ public class LogicToFile extends HttpServlet
 		out.println("<li>");
 		out.println("<h2> Truth Table Generator</h2>");
 		out.println("<p><strong>instructions</strong><br><br>please enter two different variables to compare in variable 1 and variable 2.<br><br>if you want to negate one or more of the variables, please add the following in front of the variable input: ! ~<br><br>please enter one of the following operators into the operator field:<br>and ^ & &&<br>or v |<br>xor");
-
-//please enter a variable and an operator <br><br>allowed operators are <br>(and)  ^ / & / && / and<br>(or)   v / | / or<br>(xor)  xor / ⊕<br>(not)	 ! / ~</p><br>");
 		out.println("</li>");
 		out.println("<li>");
 		out.println("<label for='variable_1'>Variable 1:</label>");
-		out.println("<input type='text' id='v1' name='v1'/>");
+		out.println("<input type='text' id='v1' name='v1'required>>");
 		out.println("</li>");
 		out.println("<li>");
 		out.println("<label for='operation'>Operator:</label>");
-		out.println("<input type='text' id='op' name='op'/>");
+		out.println("<input type='text' id='op' name='op'required>>");
 		out.println("</li>");
 		out.println("<li>");
 		out.println("<label for='variable_2'>Variable 2:</label>");
-		out.println("<input type='text' id='v2' name='v2'/>");
+		out.println("<input type='text' id='v2' name='v2'required>");
 		out.println("</li>");
 		out.println("<li class='button'>");
 		out.println("<button type='submit'>Submit</button>");
@@ -83,4 +81,125 @@ public class LogicToFile extends HttpServlet
 		out.close();
 	}  // end doGet()
 
+
+//-------
+	static String RESOURCE_FILE = "entries.json";
+	
+	public class Entry
+	{
+		String variable_1;
+		String operator;
+		String variable_2;
+	}
+
+	public class Entries
+	{
+		List<Entry> entries;
+	}
+	
+	public class EntryManager
+	{
+		private String filePath = null;
+				
+		public void setFilePath(String filePath)
+		{
+			this.filePath = filePath;
+		}
+		
+		public Entries save(String var1, String op, String var2)
+		{
+			Entries entries = getAll();
+			Entry newEntry = new Entry();
+			newEntry.variable_1 = var1;
+			newEntry.operator = op;
+			newEntry.variable_2 = var2;
+			entries.entries.add(newEntry);
+			try{
+				FileWriter fileWriter = new FileWriter(filePath);
+				new Gson().toJson(entries, fileWriter);
+				fileWriter.flush();
+				fileWriter.close();
+			}
+			catch (IOException ioException)
+			{
+       				 return null;
+      			}
+			return entries;
+		}
+		
+		private Entries getAll()
+		{
+    			Entries entries =  entries = new Entries();
+    			entries.entries = new ArrayList();
+    			try{
+    				File file = new File(filePath);
+    				if(!file.exists()){
+    					return entries;
+    				}
+    				BufferedReader bufferedReader = new BufferedReader(new FileReader(file));
+    				Entries readEntries = new Gson().fromJson(bufferedReader, Entries.class);
+    				if(readEntries != null && readEntries.entries != null){
+    					entries = readEntries;
+    				}
+    				bufferedReader.close();
+    			}
+			catch(IOException ioException){
+    			}
+
+    		return entries;
+		}
+		
+		public String getAllAsHTMLTable(Entries entries)
+		{
+    			StringBuilder htmlOut = new StringBuilder("<table>");
+    			htmlOut.append("<tr><th>Variable 1</th><th>Operatio</th><th>Variable 2<th></tr>");
+    			if(entries == null || entries.entries == null || entries.entries.size() == 0)
+			{
+    				htmlOut.append("<tr><td>No entries yet.</td></tr>");
+    			}
+			else{
+    				for(Entry entry: entries.entries){
+ 					htmlOut.append("<tr><td>"+entry.variable_1+"</td><td>"+entry.operator+"</td><td>"+entry.variable_2+"</td></tr>");
+    				}
+    			}
+    			htmlOut.append("</table>");
+    			return htmlOut.toString();
+    		}
+
+	}
+
+	
+	
+
+
+
+
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
