@@ -315,9 +315,9 @@ out.println("<p> THIS IS POOPY </p>");
 		out.println("<body>");
 		out.println("<h1>** SWE 432 - Assignment 5 **</h1>");
 		out.println("<br>");
-		out.println("<p>");
-		out.println("<button onClick=\"location.href='https://swe432servlet.herokuapp.com/Logic'\">Reset</button><br>");
-		out.println("<br>");	
+		//out.println("<p>");
+		//out.println("<button onClick=\"location.href='https://swe432servlet.herokuapp.com/Logic'\">Reset</button><br>");
+		//out.println("<br>");	
 		out.print("<strong>YOU ENTERED:</strong><br><br>");
 		if (!validOp) { out.print("invalid operation"); }
 		else if (!validVar) { out.print("invalid or missing variables"); }
@@ -382,7 +382,7 @@ out.println("<p> THIS IS POOPY </p>");
                 out.println("</tr>");
 		out.println("<tr>");
 		out.println("<th>");
-		out.println("<button onClick=\"location.href='https://swe432-assign5-ntb.herokuapp.com/Logic'\">Reset</button><br>");
+		out.println("<button onClick=\"location.href='https://swe432servlet.herokuapp.com/Logic'\">Reset</button><br>");
 		out.println("</th>");
 		out.println("</tr>");
 		
