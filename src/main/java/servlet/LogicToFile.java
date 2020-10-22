@@ -51,8 +51,8 @@ public class LogicToFile extends HttpServlet
 		out.println("<ul>");
 		out.println("<form method=\"post\">");
 		out.println("<li>");
-		out.println("<h2> Truth Table Generator</h2>");
-		out.println("<p><strong>instructions</strong><br><br>please enter two different variables to compare in variable 1 and variable 2.<br><br>if you want to negate one or more of the variables, please add the following in front of the variable input: ! ~<br><br>please enter one of the following operators into the operator field:<br>and ^ & &&<br>or v |<br>xor");
+		out.println("<h2 align='center'> Truth Table Generator</h2>");
+		out.println("<p align='center'><strong>instructions</strong><br><br>please enter two different variables to compare in variable 1 and variable 2.<br><br>if you want to negate one or more of the variables, please add the following in front of the variable input:<br>! ~<br><br>please enter one of the following operators into the operator field:<br>and ^ & &&<br>or v |<br>xor");
 		out.println("</li>");
 		out.println("<li>");
 		out.println("<label for='variable_1'>Variable 1:</label>");
