@@ -379,10 +379,20 @@ out.println("<p> THIS IS POOPY </p>");
                 out.println("<th id='eleven'>");
                 if (newvals.getProperty ("eleven") != null) out.print(newvals.getProperty ("eleven"));
                 out.print("</th>");
-                //out.println("</tr>");
-out.print("<th>");
+                out.println("</tr>");
+		out.println("<tr>");
+		out.println("<th>");
 		out.println("<button onClick=\"location.href='https://swe432-assign5-ntb.herokuapp.com/Logic'\">Reset</button><br>");
-out.print("</th></tr>");
+		out.println("</th>");
+		out.println("</tr>");
+		
+		out.println("<tr>");
+                out.println("<th>");
+		out.println("<p> wwwwwwwwwwwwwwwwww </p>");
+                //out.println("<button onClick=\"location.href='https://swe432-assign5-ntb.herokuapp.com/Logic'\">Reset</button><br>");
+                out.println("</th>");
+                out.println("</tr>");
+
 		out.println("</table>");
 		out.println("</body");
 		out.println("</html>");
