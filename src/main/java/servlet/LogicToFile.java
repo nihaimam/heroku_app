@@ -296,8 +296,14 @@ out.println("<p> THIS IS POOPY </p>");
 		else {
 			validity = false;
 		}
-		
 
+		
+		// *************** JSON ***************
+		EntryManager entryManager = new EntryManager();
+		entryManager.setFilePath(RESOURCE_FILE);
+		Entries newEntries=entryManager.save(var1, op, var2)
+		
+		
 
 		// *************** HTML ***************
 		out.println("<html>");
@@ -386,7 +392,8 @@ out.println("<p> THIS IS POOPY </p>");
 		out.println("<table>");
 		out.println("<tr>");
                 out.println("<th>");
-		out.println("<p> wwwwwwwwwwwwwwwwww </p>");
+		out.println(entryManager.getAllAsHTMLTable(newEntries));
+		//out.println("<p> wwwwwwwwwwwwwwwwww </p>");
                 out.println("</th>");
                 out.println("</tr>");
 		out.println("</table>");
