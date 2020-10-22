@@ -3,6 +3,42 @@ import javax.servlet.*;
 import javax.servlet.http.*;
 import javax.servlet.annotation.WebServlet;
 
+import java.util.List;
+import java.util.ArrayList;
+import java.util.Iterator;
+
+import java.io.BufferedReader;
+import java.io.File;
+import java.io.FileReader;
+import java.io.FileWriter;
+import java.io.PrintWriter;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.io.FileNotFoundException;
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+import java.io.InputStream;
+
+import javax.servlet.ServletException;
+import javax.servlet.annotation.WebServlet;
+import javax.servlet.http.HttpServlet;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+import javax.servlet.annotation.WebServlet;
+
+import javax.xml.stream.XMLEventFactory;
+import javax.xml.stream.XMLEventWriter;
+import javax.xml.stream.XMLEventReader;
+import javax.xml.stream.XMLInputFactory;
+import javax.xml.stream.XMLStreamException;
+import javax.xml.stream.XMLOutputFactory;
+import javax.xml.stream.XMLStreamException;
+import javax.xml.stream.events.Characters;
+import javax.xml.stream.events.EndElement;
+import javax.xml.stream.events.StartDocument;
+import javax.xml.stream.events.StartElement;
+import javax.xml.stream.events.XMLEvent;
+
 // Import Java Libraries
 import java.io.*;
 import java.util.*;
@@ -11,12 +47,12 @@ import java.lang.*;
 import java.util.ArrayList;
 
 // The @WebServletannotation is used to declare a servlet
-@WebServlet(name = "Logic Predicate Servlet", urlPatterns = {"/Logic"}) 
-public class Logic extends HttpServlet // Inheriting from HttpServlet makes this a servlet
+@WebServlet(name = "XML Persistance", urlPatterns = {"/xml"}) 
+public class XML extends HttpServlet // Inheriting from HttpServlet makes this a servlet
 {
 
 	static String Domain = "cs.gmu.edu:8443";
-	static String Path = "swe432-assign5-ntb.herokuapp.com/Logic";
+	static String Path = "swe432-assign5-ntb.herokuapp.com/xml";
 	static String Servlet = "Logic Tables";
 
 
