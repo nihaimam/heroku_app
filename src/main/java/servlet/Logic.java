@@ -16,10 +16,13 @@ public class Logic extends HttpServlet // Inheriting from HttpServlet makes this
 {
 	static enum Data {NAME, AGE, ENTRY, ENTRIES};
 
-	static String Domain = "cs.gmu.edu:8443";
-	static String Path = "swe432-assign5-ntb.herokuapp.com/Logic";
-	static String Servlet = "Logic Tables";
+	//static String Domain = "cs.gmu.edu:8443";
+	//static String Path = "swe432-assign5-ntb.herokuapp.com/Logic";
+	//static String Servlet = "Logic Tables";
 
+	static String Domain  = "";
+	static String Path    = "/";
+	static String Servlet = "Logic";
 
 	public void doGet (HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException
 	{
