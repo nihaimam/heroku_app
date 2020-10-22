@@ -175,7 +175,10 @@ public class LogicToFile extends HttpServlet
 	@Override
 	public void doPost (HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException
 	{
-		
+		response.setContentType("text/html"); // Tells the web container what we're sending back
+                PrintWriter out = response.getWriter(); // Make it appear as if we're "writing" to the browser window
+
+                out.println("<html>");
 		out.println("<title>Logic Predicate Persistence</title>");
                 out.println("</head>");
 
@@ -196,6 +199,9 @@ public class LogicToFile extends HttpServlet
                 out.println("<br>");
                 out.println("<form method=\"post\">");
                 out.println("<li>");
+
+out.println("<p> THIS IS POOPY </p>");
+
                 out.println("</li");
                 out.println("</form>");
                 out.println("</body>");
