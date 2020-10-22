@@ -321,6 +321,7 @@ out.println("<p> THIS IS POOPY </p>");
 		else if (!validVar) { out.print("invalid or missing variables"); }
 		else if (!validity) { out.print("invalid logical expression"); }
 		else { out.print(input); }
+		out.println("<br>")
 		out.println("<button onClick=\"location.href='https://swe432servlet.herokuapp.com/Logic'\">Reset</button><br>");
 		out.print("</p>");
 		out.println("<table>");
@@ -379,24 +380,17 @@ out.println("<p> THIS IS POOPY </p>");
                 if (newvals.getProperty ("eleven") != null) out.print(newvals.getProperty ("eleven"));
                 out.print("</th>");
                 out.println("</tr>");
+		out.println("</table>");
+		
 		
 		out.println("<table>");
 		out.println("<tr>");
-		out.println("<th>");
-		out.println("<button onClick=\"location.href='https://swe432servlet.herokuapp.com/Logic'\">Reset</button><br>");
-		out.println("</th>");
-		out.println("</tr>");
-		
-		out.println("<tr>");
                 out.println("<th>");
 		out.println("<p> wwwwwwwwwwwwwwwwww </p>");
-                //out.println("<button onClick=\"location.href='https://swe432-assign5-ntb.herokuapp.com/Logic'\">Reset</button><br>");
                 out.println("</th>");
                 out.println("</tr>");
 		out.println("</table>");
 
-		out.println("</table>");
-		
 
 		out.println("</body");
 		out.println("</html>");
