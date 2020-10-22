@@ -321,7 +321,7 @@ out.println("<p> THIS IS POOPY </p>");
 		else if (!validVar) { out.print("invalid or missing variables"); }
 		else if (!validity) { out.print("invalid logical expression"); }
 		else { out.print(input); }
-		out.println("<br>")
+		out.println("<br>");
 		out.println("<button onClick=\"location.href='https://swe432servlet.herokuapp.com/Logic'\">Reset</button><br>");
 		out.print("</p>");
 		out.println("<table>");
