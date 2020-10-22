@@ -21,9 +21,9 @@ import javax.servlet.annotation.WebServlet;
 @WebServlet(name = "LogicToFile", urlPatterns = {"/logison"})
 public class LogicToFile extends HttpServlet {
 
-  //static enum Data {AGE, NAME};
+  static enum Data {AGE, NAME};
   //static String RESOURCE_FILE = "entries.json";
-  //static String OperationAdd = "Add";
+  static String OperationAdd = "Submit";
 
   @Override
   public void doGet (HttpServletRequest request, HttpServletResponse response)
