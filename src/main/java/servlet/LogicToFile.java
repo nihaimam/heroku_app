@@ -30,7 +30,7 @@ public class LogicToFile extends HttpServlet
 		
 		out.println("<html>");
 		out.println("<head>");
-		out.println("<title>Logic Predicate Servlet</title>");
+		out.println("<title>Logic Predicate Persistence</title>");
 		out.println("</head>");
 		
 		out.println("<style>");
@@ -51,7 +51,10 @@ public class LogicToFile extends HttpServlet
 		out.println("<ul>");
 		out.println("<form method=\"post\">");
 		out.println("<li>");
-		out.println("<p><strong>TRUTH TABLE GENERATOR</strong><br>please enter a variable and an operator <br><br>allowed operators are <br>(and)  ^ / & / && / and<br>(or)   v / | / or<br>(xor)  xor / ⊕<br>(not)	 ! / ~</p><br>");
+		out.println("<h2> Truth Table Generator");
+		out.println("<p><strong>TRUTH TABLE GENERATOR instructions</strong><br>please enter two different variables to compare in variable 1 and variable 2.<br><br>if you want to negate one or more of the variables, please add the following in front of the variable input: ! ~<br><br>please enter one of the following operators into the Operator field:<br>and ^ & &&<br>or v |<br>xor");
+
+//please enter a variable and an operator <br><br>allowed operators are <br>(and)  ^ / & / && / and<br>(or)   v / | / or<br>(xor)  xor / ⊕<br>(not)	 ! / ~</p><br>");
 		out.println("</li>");
 		out.println("<li>");
 		out.println("<label for='variable_1'>Variable 1:</label>");
