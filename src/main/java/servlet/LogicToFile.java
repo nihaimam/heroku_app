@@ -306,7 +306,7 @@ out.println("<p> THIS IS POOPY </p>");
 		
 		out.println("<style>");
 		out.println("body { background-color: #D1F2EB; font-family: sans-serif; }");
-		out.println("tables { margin: 0 auto; width: 400px; padding: 2em; border: 2px solid #000; border-radius: 5em; background-color: #FFFFFF; }");
+		out.println("table { margin: 0 auto; width: 400px; padding: 2em; border: 2px solid #000; border-radius: 5em; background-color: #FFFFFF; }");
 		out.println("td, th { text-align: left; padding: 10px; box-sizing: border-box; border: 2px solid #999; font: 1em sans-serif; }");
 		out.println("h1, p { color: black; text-align: center; top: 3%; }");
 		out.println("</style>");
@@ -322,7 +322,6 @@ out.println("<p> THIS IS POOPY </p>");
 		else if (!validity) { out.print("invalid logical expression"); }
 		else { out.print(input); }
 		out.print("</p>");
-out.println("<tables>");
 		out.println("<table>");
 		out.println("<tr>");
 		out.println("<th id='tv1'>");
@@ -397,7 +396,6 @@ out.println("<tables>");
 
 		out.println("</table>");
 		
-out.println("</tables>");
 
 		out.println("</body");
 		out.println("</html>");
