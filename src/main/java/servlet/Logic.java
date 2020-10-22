@@ -14,6 +14,7 @@ import java.util.ArrayList;
 @WebServlet(name = "Logic Predicate Servlet", urlPatterns = {"/Logic"}) 
 public class Logic extends HttpServlet // Inheriting from HttpServlet makes this a servlet
 {
+	static enum Data {NAME, AGE, ENTRY, ENTRIES};
 
 	static String Domain = "cs.gmu.edu:8443";
 	static String Path = "swe432-assign5-ntb.herokuapp.com/Logic";
@@ -59,6 +60,15 @@ public class Logic extends HttpServlet // Inheriting from HttpServlet makes this
 		out.println("<label for='variable_1'>Variable 1:</label>");
 		out.println("<input type='text' id='v1' name='v1'/>");
 		out.println("</li>");
+
+String name = "nihaa";
+ out.println(" <table>");
+ out.println("  <tr>");
+ out.println("   <td>Name:</td>");
+ out.println("   <td><input type=\"text\" name=\""+Data.NAME.name() +"\" value=\""+name+"\" size=30 required></td>"); 
+out.println("  </tr>");
+ out.println(" </table>");
+
 		out.println("<li>");
 		out.println("<label for='operation'>Operator:</label>");
 		out.println("<input type='text' id='op' name='op'/>");
