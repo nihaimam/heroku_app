@@ -390,12 +390,12 @@ out.println("<p> THIS IS POOPY </p>");
 		
 		
 		out.println("<table>");
-		out.println("<tr>");
-                out.println("<th>");
+		//out.println("<tr>");
+                //out.println("<th>");
 		out.println(entryManager.getAllAsHTMLTable(newEntries));
 		//out.println("<p> wwwwwwwwwwwwwwwwww </p>");
-                out.println("</th>");
-                out.println("</tr>");
+                //out.println("</th>");
+                //out.println("</tr>");
 		out.println("</table>");
 
 
