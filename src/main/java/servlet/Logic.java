@@ -11,12 +11,10 @@ import java.lang.*;
 import java.util.ArrayList;
 
 // The @WebServletannotation is used to declare a servlet
-@WebServlet(name = "Logic Predicate Servlet", urlPatterns = {"/Logic"}) 
+@WebServlet(name = "Logic Predicate Servlet", urlPatterns = {"/Logic"})
+
 public class Logic extends HttpServlet // Inheriting from HttpServlet makes this a servlet
 {
-        static String Domain  = "";
-	static String Path    = "/";
-	static String Servlet = "Logic";
 
 	public void doGet (HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException
 	{
@@ -46,13 +44,8 @@ public class Logic extends HttpServlet // Inheriting from HttpServlet makes this
 		out.println("<ul>");
 		out.println("<form method=\"post\">");
 		out.println("<li>");
-		out.println("<h3 align='center'><strong>TRUTH TABLE GENERATOR</strong></h3>");
-		out.println("<p align='center'><b>Instructions:</b></p>");
-		out.println("<p align='center'>Please enter two different variables to compare in <i>Variable 1</i> and <i>Variable 2</i>.<br>If you want to negate one or more of the variables, please add the following in front of the variable input:<br><li align='center'>! ~</li></p>");
-		out.println("<p align='center'>Please enter one of the following operators into the <i>Operator</i> field:</p>");
-		out.println("<p><li align='center'>and ^ & &&</li></p>");
-		out.println("<p><li align='center'>or v |</li></p>");
-		out.println("<p><li align='center'>xor</li></p>");
+		out.println("<p><strong>TRUTH TABLE GENERATOR</strong><br>please enter a variable and an operator <br><br>allowed operators are <br>(and)  ^ / & / && / and<br>(or)   v / | / or<br>(xor)  xor / ⊕<br>(not)	 ! / ~</p><br>");
+		out.println("</li>");
 		out.println("<li>");
 		out.println("<label for='variable_1'>Variable 1:</label>");
 		out.println("<input type='text' id='v1' name='v1'/>");
@@ -67,12 +60,10 @@ public class Logic extends HttpServlet // Inheriting from HttpServlet makes this
 		out.println("</li>");
 		out.println("<li class='button'>");
 		out.println("<button type='submit'>Submit</button>");
-		//out.println("<button onClick='window.location.reload();'>Refresh</button>");
 		out.println("</li");
 		out.println("<li>");
 		out.println("<br><br>");
-		out.println("<p>Visit our Git Hub for this project: <a href='https://github.com/etracie/swe432_Assign5_NTB.git'>GitHub Link</a></p>");
-		out.println("<p><strong>CONTRIBUTION SUMMARY</strong><br>Beth, Tori, Niha<br><br>We all assisted each other with our code - often adjusting each other's work. The below is what each person was responsible for but we did also work on each other's.<br><br><i>Beth</i> built the Java Servlet printing the front end code from A3, updated the format of the input table, and worked on connecting the project with Git Hub and deploying.<br><i>Niha</i> processed the input logic predicate through a POST request, printed the truth tables, and handled incorrect input.<br><i>Tori</i> included the logical operator XOR in the input and in the table, created form validation for errors, and included the option for multiple types of syntax for the logical operators.</p>");
+		out.println("<p><strong>CONTRIBUTION SUMMARY</strong><br>Beth, Tori, Niha<br><br>we all did stuff</p>");
 		out.println("</li>");
 		out.println("</ul>");
 		out.println("</form>");
@@ -106,21 +97,17 @@ public class Logic extends HttpServlet // Inheriting from HttpServlet makes this
 		boolean validVar = true;
 		boolean validity = true;		
 
-		if ((op.equals("&")) || (op.equals("&&")) || (op.equals("and")) || (op.equals("^")) || (op.equals("And")) || (op.equals("AND"))) {
+		if ((op.equals("&")) || (op.equals("^")) || (op.equals("&&")) || (op.equals("and")) || (op.equals("And")) || (op.equals("AND"))) {
 			inop = "and";
 		}
-		else if ((op.equals("V")) || (op.equals("v")) || (op.equals("|")) || (op.equals("||")) || (op.equals("or")) || (op.equals("Or")) || (op.equals("OR"))) {
+		else if ((op.equals("V")) || (op.equals("v")) || (op.equals("|")) || (op.equals("or")) || (op.equals("Or")) || (op.equals("OR"))) {
 			inop = "or";
 		}
-		else if ((op.equals("xor")) || (op.equals("Xor")) || (op.equals("XOR")) || (op.equals("x"))) {
+		else if ((op.equals("xor")) || (op.equals("Xor")) || (op.equals("x"))) {
 			inop = "xor";
 		}
 		else {
 			validOp = false;
-			out.println("<script type='text/javascript'>");
-			out.println("alert('Invalid operator. Please try again')");
-			out.println("location='Logic';");
-			out.println("</script>");
 		}
 
                 Equation temp = new Equation(var1,true, 1);
@@ -139,10 +126,6 @@ public class Logic extends HttpServlet // Inheriting from HttpServlet makes this
                 }
                 else {
 			validVar = false;
-			out.println("<script type='text/javascript'>");
-			out.println("alert('Invalid variable. Please try again')");
-			out.println("location='Logic';");
-			out.println("</script>");
 		}	
 
 		// put values in a container for printing
@@ -187,100 +170,68 @@ public class Logic extends HttpServlet // Inheriting from HttpServlet makes this
 		out.println("<h1>** SWE 432 - Assignment 5 **</h1>");
 		out.println("<br>");
 		out.println("<p>");
-		out.println("<button onClick=\"location.href='https://swe432-assign5-ntb.herokuapp.com/Logic'\">Reset</button><br>");
-		out.println("<br>");
+		out.print("<reset method=\"get\"><input type='submit' value='reset' /></reset><br><br>");
 		//out.print("<button onclick='document.location='https://swe432servlet.herokuapp.com/Logic''>reset</button><br><br>");
 		out.print("<strong>YOU ENTERED:</strong><br><br>");
-		//if (!validOp) { out.print("invalid operation"); }
-		//else if (!validVar) { out.print("invalid or missing variables"); }
-		//else if (!validity) { out.print("invalid logical expression"); }
-		//else { out.print(input); }
-		out.print(input);
+		if (!validOp) { out.print("invalid operation"); }
+		else if (!validVar) { out.print("invalid or missing variables"); }
+		else if (!validity) { out.print("invalid logical expression"); }
+		else { out.print(input); }
 		out.print("</p>");
 		out.println("<table>");
 		out.println("<tr>");
 		out.println("<th id='tv1'>");
-		if (newvals.getProperty("tv1") != null) {
-		out.print(newvals.getProperty ("tv1"));
-		}
+		if (newvals.getProperty ("tv1") != null) out.print(newvals.getProperty ("tv1"));
 		out.print("</th>");
 		out.println("<th id='tv2'>");
-		if (newvals.getProperty("tv2") != null) {
-                out.print(newvals.getProperty ("tv2"));
-		}
+                if (newvals.getProperty ("tv2") != null) out.print(newvals.getProperty ("tv2"));
                 out.print("</th>");
 		out.println("<th id='tv3'>");
-                if (newvals.getProperty("tv3") != null) {
-		out.print(newvals.getProperty ("tv3"));
-		}
+                if (newvals.getProperty ("tv3") != null) out.print(newvals.getProperty ("tv3"));
                 out.print("</th>");
 		out.println("</tr>");
 		out.println("<tr>");
 		out.println("<th id='zero'>");
-		if (newvals.getProperty("zero") != null) {
-                out.print(newvals.getProperty ("zero"));
-		}
+                if (newvals.getProperty ("zero") != null) out.print(newvals.getProperty ("zero"));
                 out.print("</th>");
 		out.println("<th id='one'>");
-                if (newvals.getProperty("one") != null) {
-		out.print(newvals.getProperty ("one"));
-		}
+                if (newvals.getProperty ("one") != null) out.print(newvals.getProperty ("one"));
                 out.print("</th>");
                	out.println("<th id='two'>");
-                if (newvals.getProperty("two") != null) {
-		out.print(newvals.getProperty ("two"));
-		}
+                if (newvals.getProperty ("two") != null) out.print(newvals.getProperty ("two"));
                 out.print("</th>");
                 out.println("</tr>");
                	out.println("<tr>");
                 out.println("<th id='three'>");
-                if (newvals.getProperty("three") != null) {
-		out.print(newvals.getProperty ("three"));
-		}
+                if (newvals.getProperty ("three") != null) out.print(newvals.getProperty ("three"));
                 out.print("</th>");
                 out.println("<th id='four'>");
-                if (newvals.getProperty("four") != null) {
-		out.print(newvals.getProperty ("four"));
-		}
+                if (newvals.getProperty ("four") != null) out.print(newvals.getProperty ("four"));
                 out.print("</th>");
                 out.println("<th id='five'>");
-                if (newvals.getProperty("five") != null) {
-		out.print(newvals.getProperty ("five"));
-		}
+                if (newvals.getProperty ("five") != null) out.print(newvals.getProperty ("five"));
                 out.print("</th>");                
 		out.println("</tr>");
                	out.println("<tr>");
                 out.println("<th id='six'>");
-                if (newvals.getProperty("six") != null) {
-		out.print(newvals.getProperty ("six"));
-		}
+                if (newvals.getProperty ("six") != null) out.print(newvals.getProperty ("six"));
                 out.print("</th>");
                 out.println("<th id='seven'>");
-                if (newvals.getProperty("seven") != null) {
-		out.print(newvals.getProperty ("seven"));
-		}
+                if (newvals.getProperty ("seven") != null) out.print(newvals.getProperty ("seven"));
                 out.print("</th>");
                 out.println("<th id='eight'>");
-                if (newvals.getProperty("eight") != null) {
-		out.print(newvals.getProperty ("eight"));
-		}
+                if (newvals.getProperty ("eight") != null) out.print(newvals.getProperty ("eight"));
                 out.print("</th>");
                 out.println("</tr>");
                	out.println("<tr>");
                 out.println("<th id='nine'>");
-                if (newvals.getProperty("nine") != null) {
-		out.print(newvals.getProperty ("nine"));
-		}
+                if (newvals.getProperty ("nine") != null) out.print(newvals.getProperty ("nine"));
                 out.print("</th>");
                 out.println("<th id='ten'>");
-                if (newvals.getProperty("ten") != null) {
-		out.print(newvals.getProperty ("ten"));
-		}
+                if (newvals.getProperty ("ten") != null) out.print(newvals.getProperty ("ten"));
                 out.print("</th>");
                 out.println("<th id='eleven'>");
-                if (newvals.getProperty("eleven") != null) {
-		out.print(newvals.getProperty ("eleven"));
-		}
+                if (newvals.getProperty ("eleven") != null) out.print(newvals.getProperty ("eleven"));
                 out.print("</th>");
                 out.println("</tr>");
 		out.println("</table>");
@@ -289,4 +240,4 @@ public class Logic extends HttpServlet // Inheriting from HttpServlet makes this
 
 	}
 
-}  // end 
+}  // end
