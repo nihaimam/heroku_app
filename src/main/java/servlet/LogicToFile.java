@@ -177,46 +177,6 @@ public class LogicToFile extends HttpServlet
 
 	}
 
-	
-
-	//---------
-
-
-/*	@Override
-	public void doPost (HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException
-	{
-		response.setContentType("text/html"); // Tells the web container what we're sending back
-                PrintWriter out = response.getWriter(); // Make it appear as if we're "writing" to the browser window
-
-                out.println("<html>");
-		out.println("<title>Logic Predicate Persistence</title>");
-                out.println("</head>");
-
-                out.println("<style>");
-                out.println("body { background-color: #D1F2EB; font-family: sans-serif; }");
-                out.println("form { margin: 0 auto; width: 400px; padding: 2em; border: 2px solid #000; border-radius: 5em; background-color: #FFFFFF; }");
-                out.println("ul { list-style: none; padding: 0; margin: 0; }");
-                out.println("li { margin-top: 1em; }");
-                out.println("label { display: inline-block; width: 90px; text-align: right; }");
-                out.println("input{ font: 1em sans-serif; width: 275px; box-sizing: border-box; border: 2px solid #999; background-color: #D1F2EB; }");
-                out.println("h1{ color: black; text-align: center; top: 3%; }");
-                out.println(".button { padding-left: 90px; }");
-                out.println("button { margin-left: 0.5em; }");
-                out.println("</style>");
-
-                out.println("<body>");
-                out.println("<h1>** SWE 432 - Assignment 5 **</h1>");
-                out.println("<br>");
-                out.println("<form method=\"post\">");
-                out.println("<li>");
-
-out.println("<p> THIS IS POOPY </p>");
-
-                out.println("</li");
-                out.println("</form>");
-                out.println("</body>");
-                out.println("</html>");	
-	}*/
 
 	@Override
 	public void doPost (HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException	
@@ -391,11 +351,8 @@ out.println("<p> THIS IS POOPY </p>");
                 out.println("</tr>");
 		out.println("</table>");
 		
+	        out.println(entryManager.getAllAsHTMLTable(newEntries));
 		
-		out.println("<table>");
-		out.println(entryManager.getAllAsHTMLTable(newEntries));
-		out.println("</table>");
-
 
 		out.println("</body");
 		out.println("</html>");
