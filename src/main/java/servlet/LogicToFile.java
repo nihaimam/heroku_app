@@ -161,7 +161,7 @@ public class LogicToFile extends HttpServlet
 		public String getAllAsHTMLTable(Entries entries)
 		{
     			StringBuilder htmlOut = new StringBuilder("<table>");
-    			htmlOut.append("<tr><th>Variable 1</th><th>Operatio</th><th>Variable 2<th></tr>");
+    			htmlOut.append("<tr><th>Variable 1</th><th>Operation</th><th>Variable 2<th></tr>");
     			if(entries == null || entries.entries == null || entries.entries.size() == 0)
 			{
     				htmlOut.append("<tr><td>No entries yet.</td></tr>");
@@ -349,6 +349,7 @@ public class LogicToFile extends HttpServlet
                 if (newvals.getProperty ("eleven") != null) out.print(newvals.getProperty ("eleven"));
                 out.print("</th>");
                 out.println("</tr>");
+		out.println(entryManager.getAllAsHTMLTable(newEntries));
 		out.println("</table>");
 
 		out.println("<p>");
