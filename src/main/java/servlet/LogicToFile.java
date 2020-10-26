@@ -275,7 +275,7 @@ public class LogicToFile extends HttpServlet
 		
 		out.println("<style>");
 		out.println("body { background-color: #D1F2EB; font-family: sans-serif; }");
-		out.println("table { margin: 0 auto; width: 400px; padding: 2em; border: 2px solid #000; border-radius: 5em; background-color: #FFFFFF; }");
+		out.println("body { margin: 0 auto; width: 400px; padding: 2em; border: 2px solid #000; border-radius: 5em; background-color: #FFFFFF; }");
 		out.println("td, th { text-align: left; padding: 10px; box-sizing: border-box; border: 2px solid #999; font: 1em sans-serif; }");
 		out.println("h1, p { color: black; text-align: center; top: 3%; }");
 		out.println("</style>");
@@ -322,7 +322,7 @@ public class LogicToFile extends HttpServlet
                 out.print("</th>");
                 out.println("<th id='four'>");
                 if (newvals.getProperty ("four") != null) out.print(newvals.getProperty ("four"));
-                out.print("</th>");
+xs                out.print("</th>");
                 out.println("<th id='five'>");
                 if (newvals.getProperty ("five") != null) out.print(newvals.getProperty ("five"));
                 out.print("</th>");                
