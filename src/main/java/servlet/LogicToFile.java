@@ -23,11 +23,14 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import javax.servlet.annotation.WebServlet;
 
 @WebServlet(name = "LogicToFile", urlPatterns = {"/logison"})
 public class LogicToFile extends HttpServlet
 {
+
+	static String Domain = "cs.gmu.edu:8443";
+	static String Path = "swe432-assign5-ntb.herokuapp.com/logison";
+	static String Servlet = "Logic Tables";
 
 	public void doGet (HttpServletRequest request, HttpServletResponse response) 
 		throws ServletException, IOException
@@ -53,7 +56,7 @@ public class LogicToFile extends HttpServlet
 		out.println("</style>");
 
 		out.println("<body>");
-		out.println("<h1>** SWE 432 - Assignment 5 **</h1>");
+		out.println("<h1>** SWE 432 - Assignment 7 **</h1>");
 		out.println("<br>");
 		out.println("<ul>");
 		out.println("<form method=\"post\">");
@@ -319,7 +322,7 @@ out.println("<p> THIS IS POOPY </p>");
 		out.println("</head>");
 		
 		out.println("<body>");
-		out.println("<h1>** SWE 432 - Assignment 5 **</h1>");
+		out.println("<h1>** SWE 432 - Assignment 7 **</h1>");
 		out.println("<br>");
 		out.println("<p>");
 		out.print("<strong>YOU ENTERED:</strong><br><br>");
@@ -328,7 +331,7 @@ out.println("<p> THIS IS POOPY </p>");
 		else if (!validity) { out.print("invalid logical expression"); }
 		else { out.print(input); }
 		out.println("<br>");
-		out.println("<button onClick=\"location.href='https://swe432servlet.herokuapp.com/Logic'\">Reset</button><br>");
+		out.println("<button onClick=\"location.href='https://swe432-assign5-ntb.herokuapp.com/logison'\">Reset</button><br>");
 		out.print("</p>");
 		out.println("<table>");
 		out.println("<tr>");
@@ -390,12 +393,7 @@ out.println("<p> THIS IS POOPY </p>");
 		
 		
 		out.println("<table>");
-		//out.println("<tr>");
-                //out.println("<th>");
 		out.println(entryManager.getAllAsHTMLTable(newEntries));
-		//out.println("<p> wwwwwwwwwwwwwwwwww </p>");
-                //out.println("</th>");
-                //out.println("</tr>");
 		out.println("</table>");
 
 
