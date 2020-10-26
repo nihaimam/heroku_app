@@ -322,7 +322,7 @@ public class LogicToFile extends HttpServlet
                 out.print("</th>");
                 out.println("<th id='four'>");
                 if (newvals.getProperty ("four") != null) out.print(newvals.getProperty ("four"));
-xs                out.print("</th>");
+                out.print("</th>");
                 out.println("<th id='five'>");
                 if (newvals.getProperty ("five") != null) out.print(newvals.getProperty ("five"));
                 out.print("</th>");                
