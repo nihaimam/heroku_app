@@ -81,7 +81,7 @@ public class LogicToFile extends HttpServlet
 		out.println("</li");
 		out.println("<li>");
 		out.println("<br><br>");
-		out.println("<p><strong>CONTRIBUTION SUMMARY</strong><br>Beth, Tori, Niha<br><br>we all did stuff</p>");
+		out.println("<p><strong>CONTRIBUTION SUMMARY</strong><br>Beth, Tori, Niha<br><br>we all helped with the assignment, niha added functionaility, beth did the debugging and tori helped with the remaining functionality :)</p>");
 		out.println("</li>");
 		out.println("</ul>");
 		out.println("</form>");
@@ -349,8 +349,9 @@ public class LogicToFile extends HttpServlet
                 if (newvals.getProperty ("eleven") != null) out.print(newvals.getProperty ("eleven"));
                 out.print("</th>");
                 out.println("</tr>");
-		out.println(entryManager.getAllAsHTMLTable(newEntries));
 		out.println("</table>");
+
+		out.print("<strong>Previously Entered Values:</strong><br><br>");
 
 		out.println("<p>");
 	        out.println(entryManager.getAllAsHTMLTable(newEntries));
