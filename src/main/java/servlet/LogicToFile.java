@@ -350,11 +350,12 @@ public class LogicToFile extends HttpServlet
                 out.print("</th>");
                 out.println("</tr>");
 		out.println("</table>");
-		
-	        out.println(entryManager.getAllAsHTMLTable(newEntries));
-		
 
-		out.println("</body");
+		out.println("<p>");
+	        out.println(entryManager.getAllAsHTMLTable(newEntries));
+		out.println("</p>");
+
+		out.println("</body>");
 		out.println("</html>");
 
 	}	
