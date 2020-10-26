@@ -24,7 +24,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-@WebServlet(name = "LogicToFile", urlPatterns = {"/logison"})
+@WebServlet(name = "LogicToFile", urlPatterns = {"/logisonn"})
 public class LogicToFile extends HttpServlet
 {
 
