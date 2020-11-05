@@ -75,11 +75,10 @@ public class LogicAsynch extends HttpServlet // Inheriting from HttpServlet make
 		out.println("			<input type=\"text\" name=\"v2\"/>");	//onkeyup='showV2(this.value)'/>");
 		out.println("		</li>");
 		out.println("		<li>");
-		out.println("			<button type="button" onclick="loadPost()">Submit</button>");
+		out.println("			<button type='button' onclick='loadPost()'>Submit</button>");
 		out.println("		</li>");
 		out.println("		<li>");
 		out.println("			<br><br>");
-		//TODO: for now this is where my info will go
 		out.println("			<p>Truth Table: <span id='table'> </span></p>");
 		out.println("			<br><br>");
 		out.println("			<p>Visit our Git Hub for this project: <a href='https://github.com/etracie/swe432_Assign5_NTB.git'>GitHub Link</a></p>");
