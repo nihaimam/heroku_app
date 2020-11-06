@@ -34,7 +34,7 @@ function stateChanged() // On return, change the DOM with the response text
 {
 	if (xhr.readyState == 4)
 	{
-		document.getElementById("a_v1").innerHTML = xhr.responseText;
+		document.getElementById("final").innerHTML = xhr.responseText;
 	}
 }
 
