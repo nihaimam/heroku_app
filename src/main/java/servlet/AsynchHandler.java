@@ -1,6 +1,7 @@
 //Import Servlet Libraries
 import javax.servlet.*;
 import javax.servlet.http.*;
+import javax.servlet.annotation.WebServlet;
 
 //Import Java Libraries
 import java.io.*;
@@ -8,7 +9,7 @@ import java.util.*;
 import java.lang.*;
 
 @WebServlet(name = "Predicate Asynch Serv", urlPatterns = {"/AsynchHandler"})
-public class LogicAsynchServ extends HttpServlet
+public class AsynchHandler extends HttpServlet
 {
 	public void processRequest(HttpServletRequest request, HttpServletResponse response)
       throws ServletException, IOException
