@@ -76,7 +76,7 @@ public class AsynchHandler extends HttpServlet
 		//print out everything
 		out.println("<p>Asynch Equation:");
 		out.println(input);
-		out.println("</p>
+		out.println("</p>");
 		
 		out.println("<table>");
 		out.println("	<thead><tr>");
