@@ -34,7 +34,7 @@ function stateChanged() // On return, change the DOM with the response text
 {
 	if (xhr.readyState == 4)
 	{
-		document.getElementById("final").innerHTML = xhr.responseText;
+		document.getElementById("asynch_table").innerHTML = xhr.responseText;
 	}
 }
 

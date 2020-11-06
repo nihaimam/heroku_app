@@ -73,8 +73,38 @@ public class AsynchHandler extends HttpServlet
 			out.println("</script>");
 		}
 		
-		out.println("<p> fllflfllfllflflflfl</p>");
-	
+		//print out everything
+		out.println("<p>Asynch Equation:");
+		out.println(input);
+		out.println("</p>
+		
+		out.println("<table>");
+		out.println("	<thead><tr>");
+		out.println("		<th>Variable 1</th> <th>Variable 2</th> <th>Answer</th>");
+		out.println("	</tr></thead>");
+		out.println("   <tbody><tr>");
+		out.println("   	<th>");		out.print(output.get(0).toString()); out.print("</th>");
+		out.println("       <th>");     out.print(output.get(1).toString()); out.print("</th>");
+		out.println("       <th>");     out.print(output.get(2).toString()); out.print("</th>");
+		out.println("   </tr>");
+		out.println("   <tr>");
+		out.println("       <th>");     out.print(output.get(3).toString()); out.print("</th>");
+		out.println("       <th>");     out.print(output.get(4).toString()); out.print("</th>");
+		out.println("       <th>");     out.print(output.get(5).toString()); out.print("</th>");
+		out.println("   </tr>");
+		out.println("   <tr>");
+		out.println("       <th>");     out.print(output.get(6).toString()); out.print("</th>");
+		out.println("       <th>");     out.print(output.get(7).toString()); out.print("</th>");
+		out.println("       <th>");     out.print(output.get(8).toString()); out.print("</th>");
+		out.println("   </tr>");
+		out.println("   <tr>");
+		out.println("       <th>");     out.print(output.get(9).toString()); out.print("</th>");
+		out.println("       <th>");     out.print(output.get(10).toString()); out.print("</th>");
+		out.println("       <th>");     out.print(output.get(11).toString()); out.print("</th>");
+		out.println("   </tr></tbody>");
+		out.println("</table>");
+			
+		
 		out.close();
 	}
 

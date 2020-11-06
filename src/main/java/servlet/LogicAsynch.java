@@ -83,7 +83,7 @@ public class LogicAsynch extends HttpServlet // Inheriting from HttpServlet make
 		out.println("		</li>");
 		out.println("		<li>");
 		out.println("			<p>Equation: <span id=\"eq_v1\"></span> <span id=\"eq_op\"></span> <span id=\"eq_v2\"></span></p>");
-		
+		/*
 		out.println("           <p>Asynchronous Equation: <span id=\"a_v1\"></span> <span id=\"a_op\"></span> <span id=\"a_v2\"></span></p>");
 	
 		out.println("			<p>Truth Table:</p><br>");
@@ -105,9 +105,8 @@ public class LogicAsynch extends HttpServlet // Inheriting from HttpServlet make
 		out.println("               </tr></tbody>");
 		out.println("           </table>");
 		out.println("			<br><br>");
-
-
-		out.println("		<p>---------------------------<br><span id=\"final\"></span><p>");
+		*/
+		out.println("		<p>- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -<br><span id=\"asynch_table\"></span><p>");
 
 		out.println("			<p>Visit our Git Hub for this project: <a href='https://github.com/etracie/swe432_Assign5_NTB.git'>GitHub Link</a></p>");
 		out.println("			<p><strong>Contribution Summary</strong><br>Tori, Niha, Beth : We all did stuff</p>");
