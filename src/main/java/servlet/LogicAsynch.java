@@ -40,7 +40,7 @@ public class LogicAsynch extends HttpServlet // Inheriting from HttpServlet make
 		out.println("	<script type=\"text/JavaScript\" src=\"predicate.js\">");
 		out.println("	</script>");
 		out.println("	<script>");
-		out.println("		function showV1(){ var v1 = document.getElementById('v1').value; document.getElementById("eq_v1").innerHTML = v1;}");
+		out.println("		function showV1(){ var v1 = document.getElementById('v1').value; document.getElementById('eq_v1').innerHTML = v1;}");
 
 
 		out.println("		function setFocus(){ document.truthtable.operator.focus();}");

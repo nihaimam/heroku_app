@@ -3,19 +3,19 @@ var xhr
 
 function showV1() //Called from HTML onkeyup for variable 1
 {
-	var v1 = document.getElementById('v1').value;
+	var v1 = document.getElementById("v1").value;
 	document.getElementById("eq_v1").innerHTML = v1;
 }
 
 function showOp() //Called from HTML onkeyup for operator
 {
-	var op = document.getElementById('op').value;
+	var op = document.getElementById("op").value;
 	document.getElementById("eq_op").innerHTML = op;
 }
 
 function showV2() //Called from HTML onkeyup for variable 2
 {
-	var v2 = document.getElementById('v2').value;
+	var v2 = document.getElementById("v2").value;
     document.getElementById("eq_v2").innerHTML = v2;
 } 
 
