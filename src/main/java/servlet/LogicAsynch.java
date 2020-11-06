@@ -105,6 +105,10 @@ public class LogicAsynch extends HttpServlet // Inheriting from HttpServlet make
 		out.println("               </tr></tbody>");
 		out.println("           </table>");
 		out.println("			<br><br>");
+
+
+		out.println("		<p>---------------------------<br><span id=\"final\"></span><p>");
+
 		out.println("			<p>Visit our Git Hub for this project: <a href='https://github.com/etracie/swe432_Assign5_NTB.git'>GitHub Link</a></p>");
 		out.println("			<p><strong>Contribution Summary</strong><br>Tori, Niha, Beth : We all did stuff</p>");
 		out.println("		</li>");
