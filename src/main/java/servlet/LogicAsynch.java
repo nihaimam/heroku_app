@@ -40,6 +40,9 @@ public class LogicAsynch extends HttpServlet // Inheriting from HttpServlet make
 		out.println("	<script type=\"text/JavaScript\" src=\"predicate.js\">");
 		out.println("	</script>");
 		out.println("	<script>");
+		out.println("		function showV1(){ var v1 = document.getElementById('v1').value; document.getElementById("eq_v1").innerHTML = v1;}");
+
+
 		out.println("		function setFocus(){ document.truthtable.operator.focus();}");
 		out.println("	</script>");
 		out.println("</head>");
@@ -78,10 +81,8 @@ public class LogicAsynch extends HttpServlet // Inheriting from HttpServlet make
 		out.println("			<button type='button' onclick='loadPost()'>Submit</button>");
 		out.println("		</li>");
 		out.println("		<li>");
-		out.println("			<br>");
-		out.println("				<p>Equation: <span id=\"eq_v1\"></span> <span id=\"eq_op\"></span> <span id=\"eq_v2\"></span></p>");
-		out.println("				<p id=\"e_q_v1\"></p> <p id=\"e_q_op\"></p> <p id=\"e_q_v2\"></p> <br><br>");
-		out.println("				<p>Truth Table: <span id='table'> </span></p>");
+		out.println("			<p>Equation: <span id=\"eq_v1\"></span> <span id=\"eq_op\"></span> <span id=\"eq_v2\"></span></p>");
+		out.println("			<p>Truth Table: <span id='table'> </span></p>");
 		out.println("			<br><br>");
 		out.println("			<p>Visit our Git Hub for this project: <a href='https://github.com/etracie/swe432_Assign5_NTB.git'>GitHub Link</a></p>");
 		out.println("			<p><strong>Contribution Summary</strong><br>Tori, Niha, Beth : We all did stuff</p>");
