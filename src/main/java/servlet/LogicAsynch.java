@@ -37,7 +37,7 @@ public class LogicAsynch extends HttpServlet // Inheriting from HttpServlet make
 		out.println("		button { margin-left: 0.5em; }");
 		out.println("	</style>");
 		
-		out.println("	<script type=\"text/JavaScript\" src=\"https://www.cs.gmu.edu/~offutt/classes/432/examples/ajax/popcorn/popcorn.js\">");
+		out.println("	<script type=\"text/JavaScript\" src=\"predicate.js\">");
 		out.println("	</script>");
 		out.println("	<script>");
 		out.println("		function setFocus(){ document.truthtable.operator.focus();}");
@@ -64,23 +64,23 @@ public class LogicAsynch extends HttpServlet // Inheriting from HttpServlet make
 		out.println("		<p><li align='center'>xor</li></p>");
 		out.println("		<li>");
 		out.println("			<label for='variable_1'>Variable 1:</label>");
-		out.println("			<input type=\"text\" name=\"v1\" onkeyup='showV1()'/>");
+		out.println("			<input type=\"text\" name=\"v1\" id=\"v1\" onkeyup='showV1()'/>");
 		out.println("		</li>");
 		out.println("		<li>");
 		out.println("			<label for='operation'>Operator:</label>");
-		out.println("			<input type=\"text\" name=\"op\" onkeyup='showOp()'/>");
+		out.println("			<input type=\"text\" name=\"op\" id=\"op\" onkeyup='showOp()'/>");
 		out.println("		</li>");
 		out.println("		<li>");
 		out.println("			<label for='variable_2'>Variable 2:</label>");
-		out.println("			<input type=\"text\" name=\"v2\" onkeyup='showV2()'/>");
+		out.println("			<input type=\"text\" name=\"v2\" id=\"v2\" onkeyup='showV2()'/>");
 		out.println("		</li>");
 		out.println("		<li>");
 		out.println("			<button type='button' onclick='loadPost()'>Submit</button>");
 		out.println("		</li>");
 		out.println("		<li>");
-		out.println("			<br><br>");
+		out.println("			<br>");
 		out.println("				<p>Equation: </p><br>");
-		out.println("				<p id=\"v1\"></p> <p id=\"op\"></p> <p id=\"v2\"></p> <br><br>");
+		out.println("				<p id=\"eq_v1\"></p> <p id=\"eq_op\"></p> <p id=\"eq_v2\"></p> <br><br>");
 		out.println("				<p>Truth Table: <span id='table'> </span></p>");
 		out.println("			<br><br>");
 		out.println("			<p>Visit our Git Hub for this project: <a href='https://github.com/etracie/swe432_Assign5_NTB.git'>GitHub Link</a></p>");
