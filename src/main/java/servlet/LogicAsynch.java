@@ -79,7 +79,7 @@ public class LogicAsynch extends HttpServlet // Inheriting from HttpServlet make
 		out.println("		</li>");
 		out.println("		<li>");
 		out.println("			<br>");
-		out.println("				<p>Equation: <span id=\"eq_v1\"></span> <span id=\"eq_op\"></span> <span id=\"eq_v2\"></span></p>				//<p>Equation: </p><br>");
+		out.println("				<p>Equation: <span id=\"eq_v1\"></span> <span id=\"eq_op\"></span> <span id=\"eq_v2\"></span></p>");
 		out.println("				<p id=\"e_q_v1\"></p> <p id=\"e_q_op\"></p> <p id=\"e_q_v2\"></p> <br><br>");
 		out.println("				<p>Truth Table: <span id='table'> </span></p>");
 		out.println("			<br><br>");
