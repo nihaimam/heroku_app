@@ -35,6 +35,7 @@ public class LogicAsynch extends HttpServlet // Inheriting from HttpServlet make
 		out.println("		h1{ color: black; text-align: center; top: 3%; }");
 		out.println("		.button { padding-left: 90px; }");
 		out.println("		button { margin-left: 0.5em; }");
+		out.println("		table, td, th { border: 1px solid black;}");
 		out.println("	</style>");
 		
 		out.println("	<script type=\"text/JavaScript\" src=\"predicate.js\">");
@@ -82,7 +83,24 @@ public class LogicAsynch extends HttpServlet // Inheriting from HttpServlet make
 		out.println("		</li>");
 		out.println("		<li>");
 		out.println("			<p>Equation: <span id=\"eq_v1\"></span> <span id=\"eq_op\"></span> <span id=\"eq_v2\"></span></p>");
-		out.println("			<p>Truth Table: <span id='table'> </span></p>");
+		out.println("			<p>Truth Table:</p><br>");
+		out.println("			<table>");
+		out.println("				<thead><tr>");
+		out.println("					<th>Variable 1</th> <th>Variable 2</th> <th>Answer</th>");
+		out.println("               </tr></thead>");
+		out.println("               <tbody><tr>");
+		out.println("                   <th><span id=\"zero\"></span></th> <th><span id=\"one\"></span></th> <th><span id=\"two\"></span></th>");
+		out.println("               </tr>");
+		out.println("               <tr>");
+		out.println("                   <th><span id=\"three\"></span></th> <th><span id=\"four\"></span></th> <th><span id=\"five\"></span></th>");
+		out.println("               </tr>");
+		out.println("               <tr>");
+		out.println("                   <th><span id=\"six\"></span></th> <th><span id=\"seven\"></span></th> <th><span id=\"eight\"></span></th>");
+		out.println("               </tr>");
+		out.println("               <tr>");
+		out.println("                   <th><span id=\"nine\"></span></th> <th><span id=\"ten\"></span></th> <th><span id=\"eleven\"></span></th>");
+		out.println("               </tr></tbody>");
+		out.println("           </table>");
 		out.println("			<br><br>");
 		out.println("			<p>Visit our Git Hub for this project: <a href='https://github.com/etracie/swe432_Assign5_NTB.git'>GitHub Link</a></p>");
 		out.println("			<p><strong>Contribution Summary</strong><br>Tori, Niha, Beth : We all did stuff</p>");
