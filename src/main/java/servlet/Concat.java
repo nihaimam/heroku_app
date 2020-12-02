@@ -34,13 +34,15 @@ public class Concat extends HttpServlet
 // David: (5) adds the path of your form submit action
 static String Domain  = "";
 static String Path    = "";
-static String Servlet = "twoButtons";
+static String Servlet = "concat";
 
 // Button labels
-static String StringAStringB = "StringAStringB";
-static String StringBStringA = "StringBStringA";
-//David: (2) adds Multiplication label
-//static String OperationMult = "Multiply";
+static String ABC = "StringAStringBStringC";
+static String ACB = "StringAStringCStringB";
+static String BAC = "StringBStringAStringC";
+static String BCA = "StringBStringCStringA";
+static String CAB = "StringCStringAStringB";
+static String CBA = "StringCStringBStringA";
 
 // Other strings.
 static String Style ="https://www.cs.gmu.edu/~offutt/classes/432/432-style.css";
@@ -67,11 +69,11 @@ public void doPost (HttpServletRequest request, HttpServletResponse response)
    //if ((rhsStr != null) && (rhsStr.length() > 0))
    //   rhsVal = new Float(rhsStr);
 
-   if (operation.equals(StringAStringB))
+   if (operation.equals(ABC))
    {
       rslt = lhsStr + rhsStr;
    }
-   else if (operation.equals(StringBStringA))
+   else if (operation.equals(ACB))
    {
       rslt = rhsStr + lhsStr;
    }
@@ -157,8 +159,12 @@ private void PrintBody (PrintWriter out, String lhs, String rhs, String rslt)
    out.println(" </table>");
    out.println(" <br>");
    out.println(" <br>");
-   out.println(" <input type=\"submit\" value=\"" + StringAStringB + "\" name=\"Operation\">");
-   out.println(" <input type=\"submit\" value=\"" + StringBStringA + "\" name=\"Operation\">");
+   out.println(" <input type=\"submit\" value=\"" + ABC + "\" name=\"Operation\">");
+   out.println(" <input type=\"submit\" value=\"" + ACB + "\" name=\"Operation\">");
+   out.println(" <input type=\"submit\" value=\"" + BAC + "\" name=\"Operation\">");
+   out.println(" <input type=\"submit\" value=\"" + BCA + "\" name=\"Operation\">");
+   out.println(" <input type=\"submit\" value=\"" + CAB + "\" name=\"Operation\">");
+   out.println(" <input type=\"submit\" value=\"" + CBA + "\" name=\"Operation\">");
    // David: (3) adds multiplication button
    //out.println(" <input type=\"submit\" value=\"" + OperationMult + "\" name=\"Operation\">");
    out.println(" <input type=\"reset\" value=\"Reset\" name=\"reset\">");
