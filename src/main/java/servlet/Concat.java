@@ -41,12 +41,12 @@ static String Path    = "";
 static String Servlet = "concat";
 
 // Button labels
-static String ABC = "String  A B C";//tringAStringBStringC";
-static String ACB = "StringAStringCStringB";
-static String BAC = "StringBStringAStringC";
-static String BCA = "StringBStringCStringA";
-static String CAB = "StringCStringAStringB";
-static String CBA = "StringCStringBStringA";
+static String ABC = "String  A B C";
+static String ACB = "String  A C B";
+static String BAC = "String  B A C";
+static String BCA = "String  B C A";
+static String CAB = "String  C A B";
+static String CBA = "String  C B A";
 
 // Other strings.
 static String Style ="https://www.cs.gmu.edu/~offutt/classes/432/432-style.css";
@@ -137,8 +137,12 @@ private void PrintHead (PrintWriter out)
    out.println("");
 
    out.println("<head>");
-   out.println("<title>Two buttons example</title>");
-   out.println(" <link rel=\"stylesheet\" type=\"text/css\" href=\"" + Style + "\">");
+   out.println("<title>Concatenate Strings</title>");
+   out.println("<style>");
+   out.println("  body { background-color: #D1F2EB; font-family: sans-serif; }");
+   out.println("  div { margin: 0 auto; width: 400px; padding: 2em; border: 2px solid #000; border-radius: 5em; background-color: #FFFFFF; }");
+   out.println("</style>");
+   //out.println(" <link rel=\"stylesheet\" type=\"text/css\" href=\"" + Style + "\">");
    out.println("</head>");
    out.println("");
 } // End PrintHead
