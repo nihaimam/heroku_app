@@ -1,3 +1,7 @@
+import java.lang.*;
+import java.io.*;
+import java.util.*;
+
 import java.io.PrintWriter;
 import java.io.IOException;
 
@@ -64,9 +68,17 @@ public void doPost (HttpServletRequest request, HttpServletResponse response)
    String strB = request.getParameter("strB");
    String strC = request.getParameter("strC");
    
+   // reverse every string
    if ("Reverse".equals(request.getParameter("reverse")))
    {
-      // reverse all strings
+      StringBuilder a = new StringBuilder(strA).reverse();
+      strA = a.toString();
+
+      StringBuilder b = new StringBuilder(strB).reverse();
+      strB = b.toString();
+
+      StringBuilder c = new StringBuilder(strC).reverse();
+      strC = c.toString();      
    }
    
    if (operation.equals(ABC))
@@ -169,15 +181,16 @@ private void PrintBody (PrintWriter out, String strA, String strB, String strC, 
    out.println(" <br>");
    out.println(" <input type=\"radio\" value='Reverse' name=\"reverse\">");
    out.println(" <label for=\"reverse\">Reverse the Strings !</label>");
-   out.println(" <br>");
+   out.println(" <br><br>");
    out.println(" <input type=\"submit\" value=\"" + ABC + "\" name=\"Operation\">");
    out.println(" <input type=\"submit\" value=\"" + ACB + "\" name=\"Operation\">");
+   out.println(" <br>");
    out.println(" <input type=\"submit\" value=\"" + BAC + "\" name=\"Operation\">");
    out.println(" <input type=\"submit\" value=\"" + BCA + "\" name=\"Operation\">");
+   out.println(" <br>");
    out.println(" <input type=\"submit\" value=\"" + CAB + "\" name=\"Operation\">");
    out.println(" <input type=\"submit\" value=\"" + CBA + "\" name=\"Operation\">");
    out.println(" <br>");
-   out.println(" <input type=\"reverse\" value=\"Reverse\" name=\"rever\">");
    out.println(" <input type=\"reset\" value=\"Reset\" name=\"reset\">");
    out.println("</form>");
    out.println("");
