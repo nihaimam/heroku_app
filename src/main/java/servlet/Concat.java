@@ -178,7 +178,7 @@ private void PrintBody (PrintWriter out, String strA, String strB, String strC, 
    out.println("<br>");
    out.println("  <tr>");
    out.println("   <td>Result:");
-   out.println("   <td><input type=\"text\" name=\"result\" value=\"" + rslt + "\" size=30>");
+   out.println("   <td><input type=\"text\" name=\"result\" value=\"" + rslt + "\" size=30 readonly>");
    out.println("  </tr>");
    out.println(" </table>");
    out.println(" <br>");
