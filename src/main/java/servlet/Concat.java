@@ -57,36 +57,47 @@ static String Style ="https://www.cs.gmu.edu/~offutt/classes/432/432-style.css";
 public void doPost (HttpServletRequest request, HttpServletResponse response)
    throws ServletException, IOException
 {
-	String rslt = "";
-   //Float rslt   = new Float(0.0);
-   //Float lhsVal = new Float(0.0);
-   //Float rhsVal = new Float(0.0);
+   String rslt = "";
+   String sep = ",";
    String operation = request.getParameter("Operation");
-   String lhsStr = request.getParameter("LHS");
-   String rhsStr = request.getParameter("RHS");
-   //if ((lhsStr != null) && (lhsStr.length() > 0))
-   //   lhsVal = new Float(lhsStr);
-   //if ((rhsStr != null) && (rhsStr.length() > 0))
-   //   rhsVal = new Float(rhsStr);
-
+   String strA = request.getParameter("strA");
+   String strB = request.getParameter("strB");
+   String strC = request.getParameter("strC");
+   
+   if ("Reverse".equals(request.getParameter("reverse")))
+   {
+      // reverse all strings
+   }
+   
    if (operation.equals(ABC))
    {
-      rslt = lhsStr + rhsStr;
+      rslt = strA + sep + strB + sep + strC;
    }
    else if (operation.equals(ACB))
    {
-      rslt = rhsStr + lhsStr;
+      rslt = strA + sep + strC + sep + strB;
    }
-   //David: (6) adds multiplication action's resolution
-   //else if (operation.equals(OperationMult))
-   //{
-     // rslt = new Float(lhsVal.floatValue() * rhsVal.floatValue());
-   //}
+   else if (operation.equals(BAC))
+   {  
+      rslt = strB + sep + strA + sep + strC;
+   }
+   else if (operation.equals(BCA))
+   {  
+      rslt = strB + sep + strC + sep + strA;
+   }
+   else if (operation.equals(CAB))
+   {  
+      rslt = strC + sep + strA + sep + strB;
+   }
+   else if (operation.equals(CBA))
+   {  
+      rslt = strC + sep + strB + sep + strA;
+   }
 
    response.setContentType("text/html");
    PrintWriter out = response.getWriter();
    PrintHead(out);
-   PrintBody(out, lhsStr, rhsStr, rslt.toString());
+   PrintBody(out, strA, strB, strC, rslt.toString());
    PrintTail(out);
 }  // End doPost
 
@@ -124,49 +135,47 @@ private void PrintHead (PrintWriter out)
  *  Prints the <BODY> of the HTML page with the form data
  *  values from the parameters.
 ********************************************************* */
-private void PrintBody (PrintWriter out, String lhs, String rhs, String rslt)
+private void PrintBody (PrintWriter out, String strA, String strB, String strC, String rslt)
 {
    out.println("<body>");
    out.println("<p>");
-   out.println("A simple example that demonstrates how to operate with");
-   out.println("multiple submit buttons.");
+   out.println("<strong>A simple program to concatenate multiple Strings ! :)</strong>");
+   out.println("<br>");
+   out.println("you can concatenate the strings in multiple orders, click on any given button");
    out.println("</p>");
    out.print  ("<form method=\"post\"");
-   //David: (4) changes  action's url to your own url using a relative path to the servlet.
-   //If left untouched, the operation buttons go to Prof. Offutt website, and
-   // if you provide an erroneous path you will see a 404 (Not Found) error.
-   //In the form action, you can specify an absolute or relative path to your URL
-   // and optionally the servlet that will respond to the action.
-   //However, the original line only works when your app is deployed
-   // and not when running locally (yourpage.com vs localhost:port).
-   // For simplicity, I used a relative path but it is strongly recommended
-   // to use absolute paths because they can cached by web servers and browsers
    out.println(" action=\"/" + Servlet + "\">");
    out.println("");
    out.println(" <table>");
    out.println("  <tr>");
-   out.println("   <td>First value:");
-   out.println("   <td><input type=\"text\" name=\"LHS\" value=\"" + lhs + "\" size=5>");
+   out.println("   <td>String A:");
+   out.println("   <td><input type=\"text\" name=\"strA\" value=\"" + strA + "\" size=10>");
    out.println("  </tr>");
    out.println("  <tr>");
-   out.println("   <td>Second value:");
-   out.println("   <td><input type=\"text\" name=\"RHS\" value=\"" + rhs + "\" size=5>");
+   out.println("   <td>String B:");
+   out.println("   <td><input type=\"text\" name=\"strB\" value=\"" + strB + "\" size=10>");
    out.println("  </tr>");
+   out.println("  <tr>");
+   out.println("   <td>String C:");
+   out.println("   <td><input type=\"text\" name=\"strC\" value=\"" + strC + "\" size=10>");
+   out.println("  </tr>");
+   out.println("<br>");
    out.println("  <tr>");
    out.println("   <td>Result:");
-   out.println("   <td><input type=\"text\" name=\"RHS\" value=\"" + rslt + "\" size=6>");
+   out.println("   <td><input type=\"text\" name=\"result\" value=\"" + rslt + "\" size=30>");
    out.println("  </tr>");
    out.println(" </table>");
    out.println(" <br>");
    out.println(" <br>");
+   out.println(" <input type=\"radio\" value=\"Reverse\" name=\"reverse\">");
    out.println(" <input type=\"submit\" value=\"" + ABC + "\" name=\"Operation\">");
    out.println(" <input type=\"submit\" value=\"" + ACB + "\" name=\"Operation\">");
    out.println(" <input type=\"submit\" value=\"" + BAC + "\" name=\"Operation\">");
    out.println(" <input type=\"submit\" value=\"" + BCA + "\" name=\"Operation\">");
    out.println(" <input type=\"submit\" value=\"" + CAB + "\" name=\"Operation\">");
    out.println(" <input type=\"submit\" value=\"" + CBA + "\" name=\"Operation\">");
-   // David: (3) adds multiplication button
-   //out.println(" <input type=\"submit\" value=\"" + OperationMult + "\" name=\"Operation\">");
+   out.println(" <br>");
+   out.println(" <input type=\"reverse\" value=\"Reverse\" name=\"rever\">");
    out.println(" <input type=\"reset\" value=\"Reset\" name=\"reset\">");
    out.println("</form>");
    out.println("");
@@ -179,7 +188,7 @@ private void PrintBody (PrintWriter out, String lhs, String rhs, String rslt)
 ********************************************************* */
 private void PrintBody (PrintWriter out)
 {
-   PrintBody(out, "", "", "");
+   PrintBody(out, "", "", "", "");
 }
 
 /** *****************************************************
