@@ -37,7 +37,7 @@ static String Path    = "";
 static String Servlet = "concat";
 
 // Button labels
-static String ABC = "StringAStringBStringC";
+static String ABC = "String  A B C";//tringAStringBStringC";
 static String ACB = "StringAStringCStringB";
 static String BAC = "StringBStringAStringC";
 static String BCA = "StringBStringCStringA";
@@ -167,7 +167,8 @@ private void PrintBody (PrintWriter out, String strA, String strB, String strC, 
    out.println(" </table>");
    out.println(" <br>");
    out.println(" <br>");
-   out.println(" <input type=\"radio\" value=\"Reverse\" name=\"reverse\">");
+   out.println(" <input type=\"radio\" value='Reverse' name=\"reverse\">");
+   out.println(" <br>");
    out.println(" <input type=\"submit\" value=\"" + ABC + "\" name=\"Operation\">");
    out.println(" <input type=\"submit\" value=\"" + ACB + "\" name=\"Operation\">");
    out.println(" <input type=\"submit\" value=\"" + BAC + "\" name=\"Operation\">");
