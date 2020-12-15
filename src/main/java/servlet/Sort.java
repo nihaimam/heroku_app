@@ -135,12 +135,12 @@ private void PrintHead (PrintWriter out)
    out.println("");
 
    out.println("<head>");
-   out.println("<title>Concatenate Strings</title>");
+   out.println("<title>Sort them Strings</title>");
    out.println("<style>");
-   out.println("  body { background-color: #D1F2EB; font-family: sans-serif; }");
-   out.println("  div { margin: 0 auto; width: 400px; padding: 2em; border: 2px solid #000; border-radius: 5em; background-color: #FFFFFF; }");
+   out.println("  body { background-color: #E59866; font-family:Courier New;}");
+   out.println("  h1   { text-align: center;}");
+   out.println("  div  { margin: 0 auto; width: 400px; padding: 2em; border: 2px solid #000; border-radius: 5em; background-color: #FFFFFF; }");
    out.println("</style>");
-   //out.println(" <link rel=\"stylesheet\" type=\"text/css\" href=\"" + Style + "\">");
    out.println("</head>");
    out.println("");
 } // End PrintHead
@@ -152,6 +152,7 @@ private void PrintHead (PrintWriter out)
 private void PrintBody (PrintWriter out, String strA, String strB, String strC, String rslt)
 {
    out.println("<body>");
+   out.println("<h> String Sorter </h>");
    out.println("<p>");
    out.println("<strong>A simple program to concatenate multiple Strings ! :)</strong>");
    out.println("<br>");
