@@ -137,9 +137,9 @@ private void PrintHead (PrintWriter out)
    out.println("<head>");
    out.println("<title>Sort them Strings</title>");
    out.println("<style>");
-   out.println("  body { background-color: #E59866; font-family:Courier New;}");
-   out.println("  h1   { text-align: center;}");
-   out.println("  div  { margin: 0 auto; width: 400px; padding: 2em; border: 2px solid #000; border-radius: 5em; background-color: #FFFFFF; }");
+   out.println("  body { background-color: #835C3B; font-family:Courier New; }");
+   out.println("  h1   { text-align: center; color: #FFB6C1; font-size: 250%}");
+   out.println("  div  { margin: 0 auto; width: 400px; padding: 2em; border: 2px solid #000; border-radius: 5em; }");
    out.println("</style>");
    out.println("</head>");
    out.println("");
