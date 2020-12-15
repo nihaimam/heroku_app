@@ -137,7 +137,7 @@ private void PrintHead (PrintWriter out)
    out.println("<head>");
    out.println("<title>Sort them Strings</title>");
    out.println("<style>");
-   out.println("  body { background-color: #835C3B; font-family:Courier New; }");
+   out.println("  body { background-color: #97704F; font-family:Courier New; }");
    out.println("  h1   { text-align: center; color: #FFB6C1; font-size: 250%}");
    out.println("  div  { margin: 0 auto; width: 400px; padding: 2em; border: 2px solid #000; border-radius: 5em; }");
    out.println("</style>");
@@ -152,34 +152,19 @@ private void PrintHead (PrintWriter out)
 private void PrintBody (PrintWriter out, String strA, String strB, String strC, String rslt)
 {
    out.println("<body>");
-   out.println("<h> String Sorter </h>");
-   out.println("<p>");
-   out.println("<strong>A simple program to concatenate multiple Strings ! :)</strong>");
-   out.println("<br>");
-   out.println("you can concatenate the strings in multiple orders, click on any given button");
-   out.println("</p>");
-   out.print  ("<form method=\"post\"");
-   out.println(" action=\"/" + Servlet + "\">");
-   out.println("");
-   out.println(" <table>");
-   out.println("  <tr>");
-   out.println("   <td>String A:");
-   out.println("   <td><input type=\"text\" name=\"strA\" value=\"" + strA + "\" size=10>");
-   out.println("  </tr>");
-   out.println("  <tr>");
-   out.println("   <td>String B:");
-   out.println("   <td><input type=\"text\" name=\"strB\" value=\"" + strB + "\" size=10>");
-   out.println("  </tr>");
-   out.println("  <tr>");
-   out.println("   <td>String C:");
-   out.println("   <td><input type=\"text\" name=\"strC\" value=\"" + strC + "\" size=10>");
-   out.println("  </tr>");
-   out.println("<br>");
-   out.println("  <tr>");
-   out.println("   <td>Result:");
-   out.println("   <td><input type=\"text\" name=\"result\" value=\"" + rslt + "\" size=30 readonly>");
-   out.println("  </tr>");
-   out.println(" </table>");
+   out.println("<h1> <strong>String Sorter </h1>");
+   out.println("<div>");
+   out.println("   <br>");
+   out.println("   <p> a simple program to sort multiple multiple strings !");
+   out.println("      <br> you can sort the strings in multiple orders, click on any given button");
+   out.println("   </p>");
+   out.println("   <form method=\"post\" action=\"/" + Servlet + "\">");
+   out.println("      <label for=\"str\">enter strings:</label><br>");
+   out.println("      <textarea id=\"str\" name=\"str\" rows='8' cols='40'>enter strings here</textarea>");
+
+ //  out.println("      <input type=\"text\" id=\"str\" name=\"str\" value=\""+sortedArr+"\" size=10>");i
+
+
    out.println(" <br>");
    out.println(" <br>");
    out.println(" <input type=\"radio\" value='Reverse' name=\"reverse\">");
