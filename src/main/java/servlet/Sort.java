@@ -55,15 +55,7 @@ public void doPost (HttpServletRequest request, HttpServletResponse response)
    // convert one big string to a String[]
    String[] arr = all.split("\\W+");
    // convert the String[] to List<String>
-   //List<String> input = Arrays.asList(arr);
-
-
-   List<String> input = new ArrayList<String>();
-   for (int i = 0; i < arr.length; i++)
-   {
-      if (!input.contains(arr[i]))
-         input.add(arr[i]);
-   }
+   List<String> input = Arrays.asList(arr);
 
 
    if (op.equals("A -> Z"))
@@ -74,16 +66,14 @@ public void doPost (HttpServletRequest request, HttpServletResponse response)
    {
       input.sort(Comparator.comparing(String::toString ).reversed());
    }
-
    if (op.equals("numeric")) 
    {
+      input.sort(Comparator.comparingInt(String::length));
       //do this
       //In order to simply check the string that it contains only NUMBER use the following code :
       //if (text.matches("[0-9]+"){
       // your operations
-
    }
-
    if (op.equals("length")) 
    {
       //do this
