@@ -52,7 +52,10 @@ public void doPost (HttpServletRequest request, HttpServletResponse response)
    String op = request.getParameter("op");
   
    String[] arr = all.split("\\W+"); 
-   System.out.println(all);
+   
+   document.getElementById("id").value = arr;
+
+
 
    //else if (operation.equals(CBA))
 
@@ -114,7 +117,7 @@ private void PrintBody (PrintWriter out, String arr)
    out.println("   </p>");
    out.println("   <form method=\"post\" action=\"/" + Servlet + "\">");
    //out.println("      <label for=\"str\">enter strings below:</label><br>");
-   out.println("      <textarea id=\"str\" name=\"str\" rows='8' cols='53'></textarea>");
+   out.println("      <textarea id=\"str\" name=\"str\" rows='20' cols='79'></textarea>");
    out.println("      <br><br>");
    out.println("      <input type=\"submit\" value=\"A -> Z\" name=\"op\">");
    out.println("      <input type=\"submit\" value=\"Z -> A\" name=\"op\">");
