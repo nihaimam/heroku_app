@@ -55,21 +55,13 @@ public void doPost (HttpServletRequest request, HttpServletResponse response)
    // convert one big string to a String[]
    String[] arr = all.split("\\W+");
    // convert the String[] to List<String>
-   //List<String> input = Arrays.asList(arr);
-
-
-
-List<String> og = Arrays.asList(arr);
-
-		List<String> input = new ArrayList<>();
-		og.forEach(eachValue -> {
-			if(!input.contains(eachValue)) {
-				input.add(eachValue);
-			}
-		});
-
-
-
+   List<String> og = Arrays.asList(arr);
+   List<String> input = new ArrayList<>();
+   og.forEach(eachValue -> {
+      if(!input.contains(eachValue)) {
+         input.add(eachValue);
+      }
+   });
 
    if (op.equals("A -> Z"))
    {
@@ -79,19 +71,10 @@ List<String> og = Arrays.asList(arr);
    {
       input.sort(Comparator.comparing(String::toString ).reversed());
    }
-   if (op.equals("numeric")) 
-   {
-      
-      //do this
-      //In order to simply check the string that it contains only NUMBER use the following code :
-      //if (text.matches("[0-9]+"){
-      // your operations
-   }
    if (op.equals("length")) 
    {
       input.sort(Comparator.comparingInt(String::length));
    }
-
 
    // we take the sorted arraylist and convert it back to array
    String[] sortedArr = new String[input.size()];
@@ -100,7 +83,7 @@ List<String> og = Arrays.asList(arr);
    // combine all together into one big string
    StringBuffer sb = new StringBuffer();
    for(int i = 0; i < sortedArr.length; i++) {
-      sb.append(arr[i]);
+      sb.append(sortedArr[i]);
       sb.append(", ");
    }
    sb.deleteCharAt(sb.lastIndexOf(",")); // remove the last pesky comma
@@ -164,8 +147,7 @@ private void PrintBody (PrintWriter out, String arr)
    out.println("      <br><br>");
    out.println("      <input type=\"submit\" value=\"A -> Z\" name=\"op\">");
    out.println("      <input type=\"submit\" value=\"Z -> A\" name=\"op\">");
-   out.println("      <input type=\"submit\" value=\"numeric\" name=\"op\">");
-   out.println("      <input type=\"submit\" value=\"random\" name=\"op\">");
+   out.println("      <input type=\"submit\" value=\"length\" name=\"op\">");
    out.println("   </form>");
    out.println("   <br><p>your sorted strings are:</p>");
    out.println("   <p style=\"font-size: 150%;\"><br><br>" + arr + "</p>");
