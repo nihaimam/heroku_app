@@ -67,12 +67,13 @@ public void doPost (HttpServletRequest request, HttpServletResponse response)
    {
       input.sort(Comparator.comparing(String::toString));
    }
-   else if (op.equals("Z -> A")) 
+   if (op.equals("Z -> A")) 
    {
       input.sort(Comparator.comparing(String::toString ).reversed());
+      //Collections.sort(arraylist, Collections.reverseOrder());
    }
 
-   else if (op.equals("numeric")) 
+   if (op.equals("numeric")) 
    {
       //do this
       //In order to simply check the string that it contains only NUMBER use the following code :
@@ -81,7 +82,7 @@ public void doPost (HttpServletRequest request, HttpServletResponse response)
 
    }
 
-   else if (op.equals("length")) 
+   if (op.equals("length")) 
    {
       //do this
    }
