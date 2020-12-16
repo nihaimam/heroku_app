@@ -2,6 +2,7 @@ import java.lang.*;
 import java.io.*;
 import java.util.*;
 
+import java.util.stream.Collectors;
 import java.io.PrintWriter;
 import java.io.IOException;
 
@@ -80,18 +81,23 @@ public void doPost (HttpServletRequest request, HttpServletResponse response)
    }
 
    // try to take out duplicates
-   List<String> nodup = new ArrayList<String>();
-   for (String element : input) {
-      if (!nodup.contains(element)) {
-         nodup.add(element);
-      }
-   }
+   //List<String> nodup = new ArrayList<String>();
+   //for (String element : input) {
+      //if (!nodup.contains(element)) {
+         //nodup.add(element);
+      //}
+   //}
+
+
+   List<String> nodup = input.stream() 
+                                      .distinct() 
+                                      .collect(Collectors.toList()); 
 
 
    // we take the sorted arraylist and convert it back to array
    String[] sortedArr = new String[nodup.size()];
    sortedArr = nodup.toArray(sortedArr);
-    
+   
    // combine all together into one big string
    StringBuffer sb = new StringBuffer();
    for(int i = 0; i < sortedArr.length; i++) {
