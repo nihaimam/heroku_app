@@ -56,7 +56,7 @@ public void doPost (HttpServletRequest request, HttpServletResponse response)
    // convert the String[] to List<String>
    List<String> input = Arrays.asList(arr);
    // remove duplicates
-   Set<String> hashSet = new HashSet<>(input);
+   Set<String> hashSet = new LinkedHashSet<>(input);
    input.clear();
    input.addAll(hashSet);
 
