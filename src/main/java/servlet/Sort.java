@@ -54,7 +54,15 @@ public void doPost (HttpServletRequest request, HttpServletResponse response)
    // convert one big string to a String[]
    String[] arr = all.split("\\W+");
    // convert the String[] to List<String>
-   List<String> input = Arrays.asList(arr);
+   List<String> inArr = Arrays.asList(arr);
+   // try to remove duplicates
+   List<String> input = new ArrayList<String>();
+   for (String element : input) {
+      if (!input.contains(element)) {
+         input.add(element);
+      }
+   }
+
 
    if (op.equals("A -> Z"))
    {
