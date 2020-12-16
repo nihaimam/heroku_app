@@ -63,7 +63,6 @@ public void doPost (HttpServletRequest request, HttpServletResponse response)
    if (op.equals("Z -> A")) 
    {
       input.sort(Comparator.comparing(String::toString ).reversed());
-      //Collections.sort(input, Collections.reverseOrder());
    }
 
    if (op.equals("numeric")) 
@@ -90,8 +89,8 @@ public void doPost (HttpServletRequest request, HttpServletResponse response)
 
 
    // we take the sorted arraylist and convert it back to array
-   String[] sortedArr = new String[input.size()];
-   sortedArr = input.toArray(sortedArr);
+   String[] sortedArr = new String[nodup.size()];
+   sortedArr = nodup.toArray(sortedArr);
     
    // combine all together into one big string
    StringBuffer sb = new StringBuffer();
