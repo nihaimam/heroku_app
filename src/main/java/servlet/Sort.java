@@ -108,13 +108,14 @@ private void PrintBody (PrintWriter out, String arr)
 {
    out.println("<body>");
    out.println("<h1> <strong>String Sorter </h1>");
-   out.println("<div>");
+   //out.println("<div>");
    out.println("   <br>");
    out.println("   <p>a simple program to sort multiple multiple strings !<br>");
    out.println("      <br>you can sort the strings in multiple orders,");
    out.println("      click on any given button<br>");
    out.println("      <br><br> please enter the strings seperated by space or comma or newline<br>");
    out.println("   </p>");
+   out.println("<div>");
    out.println("   <form method=\"post\" action=\"/" + Servlet + "\">");
    //out.println("      <label for=\"str\">enter strings below:</label><br>");
    out.println("      <textarea id=\"str\" name=\"str\" rows='20' cols='79'></textarea>");
