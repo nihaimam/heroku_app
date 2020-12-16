@@ -123,6 +123,7 @@ private void PrintBody (PrintWriter out, String arr)
    out.println("      <br>");
    out.println("      <input type=\"reset\" value=\"Reset\" name=\"reset\">");
    out.println("   </form>");
+   out.println("</div>");
    out.println("</body>");
 } // End PrintBody
 
