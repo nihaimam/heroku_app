@@ -55,7 +55,16 @@ public void doPost (HttpServletRequest request, HttpServletResponse response)
    // convert one big string to a String[]
    String[] arr = all.split("\\W+");
    // convert the String[] to List<String>
-   List<String> input = Arrays.asList(arr);
+   //List<String> input = Arrays.asList(arr);
+
+
+   List<String> input = new ArrayList<String>();
+   for (int i = 0; i < arr.length; i++)
+   {
+      if (!input.contains(arr[i]))
+         input.add(arr[i]);
+   }
+
 
    if (op.equals("A -> Z"))
    {
@@ -80,24 +89,10 @@ public void doPost (HttpServletRequest request, HttpServletResponse response)
       //do this
    }
 
-   // try to take out duplicates
-   //List<String> nodup = new ArrayList<String>();
-   //for (String element : input) {
-      //if (!nodup.contains(element)) {
-         //nodup.add(element);
-      //}
-   //}
-
-   Set<String> hashSet = new LinkedHashSet(input);
-   ArrayList<String> nodup = new ArrayList(hashSet);
-
-
-
-
 
    // we take the sorted arraylist and convert it back to array
-   String[] sortedArr = new String[nodup.size()];
-   sortedArr = nodup.toArray(sortedArr);
+   String[] sortedArr = new String[input.size()];
+   sortedArr = input.toArray(sortedArr);
    
    // combine all together into one big string
    StringBuffer sb = new StringBuffer();
