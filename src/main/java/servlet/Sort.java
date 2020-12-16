@@ -158,7 +158,7 @@ private void PrintBody (PrintWriter out, String strA, String strB, String strC, 
    out.println("   <p>a simple program to sort multiple multiple strings !<br>");
    out.println("      <br>you can sort the strings in multiple orders");
    out.println("      <br>click on any given button<br>");
-   out.println("      <br><br> please enter the strings seperated by space(" ") or comma(,) or newline<br>");
+   out.println("      <br><br> please enter the strings seperated by space or comma or newline<br>");
    out.println("   </p>");
    out.println("   <form method=\"post\" action=\"/" + Servlet + "\">");
    out.println("      <label for=\"str\">enter strings below:</label><br>");
