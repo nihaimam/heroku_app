@@ -137,7 +137,7 @@ private void PrintHead (PrintWriter out)
    out.println("<head>");
    out.println("<title>Sort them Strings</title>");
    out.println("<style>");
-   out.println("  body { background-color: #97704F; font-family:Courier New; }");
+   out.println("  body { background-color: #97704F; font-family:Courier New; color: #FFB6C1; }");
    out.println("  h1   { text-align: center; color: #FFB6C1; font-size: 250%}");
    out.println("  div  { margin: 0 auto; width: 400px; padding: 2em; border: 2px solid #000; border-radius: 5em; }");
    out.println("</style>");
@@ -159,29 +159,16 @@ private void PrintBody (PrintWriter out, String strA, String strB, String strC, 
    out.println("      <br> you can sort the strings in multiple orders, click on any given button");
    out.println("   </p>");
    out.println("   <form method=\"post\" action=\"/" + Servlet + "\">");
-   out.println("      <label for=\"str\">enter strings:</label><br>");
-   out.println("      <textarea id=\"str\" name=\"str\" rows='8' cols='40'>enter strings here</textarea>");
-
- //  out.println("      <input type=\"text\" id=\"str\" name=\"str\" value=\""+sortedArr+"\" size=10>");i
-
-
-   out.println(" <br>");
-   out.println(" <br>");
-   out.println(" <input type=\"radio\" value='Reverse' name=\"reverse\">");
-   out.println(" <label for=\"reverse\">Reverse the Strings !</label>");
-   out.println(" <br><br>");
-   out.println(" <input type=\"submit\" value=\"" + ABC + "\" name=\"Operation\">");
-   out.println(" <input type=\"submit\" value=\"" + ACB + "\" name=\"Operation\">");
-   out.println(" <br>");
-   out.println(" <input type=\"submit\" value=\"" + BAC + "\" name=\"Operation\">");
-   out.println(" <input type=\"submit\" value=\"" + BCA + "\" name=\"Operation\">");
-   out.println(" <br>");
-   out.println(" <input type=\"submit\" value=\"" + CAB + "\" name=\"Operation\">");
-   out.println(" <input type=\"submit\" value=\"" + CBA + "\" name=\"Operation\">");
-   out.println(" <br>");
-   out.println(" <input type=\"reset\" value=\"Reset\" name=\"reset\">");
-   out.println("</form>");
-   out.println("");
+   out.println("      <label for=\"str\">enter strings below:</label><br>");
+   out.println("      <textarea id=\"str\" name=\"str\" rows='8' cols='40'></textarea>");
+   out.println("      <br><br>");
+   out.println("      <input type=\"submit\" value=\"A -> Z\" name=\"op\">");
+   out.println("      <input type=\"submit\" value=\"Z -> A\" name=\"op\">");
+   out.println("      <input type=\"submit\" value=\"numeric\" name=\"op\">");
+   out.println("      <input type=\"submit\" value=\"random\" name=\"op\">");
+   out.println("      <br>");
+   out.println("      <input type=\"reset\" value=\"Reset\" name=\"reset\">");
+   out.println("   </form>");
    out.println("</body>");
 } // End PrintBody
 
