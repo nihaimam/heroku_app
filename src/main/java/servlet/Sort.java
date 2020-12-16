@@ -69,8 +69,8 @@ public void doPost (HttpServletRequest request, HttpServletResponse response)
    }
    if (op.equals("Z -> A")) 
    {
-      input.sort(Comparator.comparing(String::toString ).reversed());
-      //Collections.sort(arraylist, Collections.reverseOrder());
+      //input.sort(Comparator.comparing(String::toString ).reversed());
+      Collections.sort(input, Collections.reverseOrder());
    }
 
    if (op.equals("numeric")) 
