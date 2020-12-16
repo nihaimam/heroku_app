@@ -88,10 +88,11 @@ public void doPost (HttpServletRequest request, HttpServletResponse response)
       //}
    //}
 
+   Set<String> hashSet = new LinkedHashSet(input);
+   ArrayList<String> nodup = new ArrayList(hashSet);
 
-   List<String> nodup = input.stream() 
-                                      .distinct() 
-                                      .collect(Collectors.toList()); 
+
+
 
 
    // we take the sorted arraylist and convert it back to array
