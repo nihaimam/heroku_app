@@ -59,7 +59,7 @@ public void doPost (HttpServletRequest request, HttpServletResponse response)
 
    Set<String> set = new LinkedHashSet<>();
    set.addAll(inArr);
-   inArr.clear();
+   inArr = new ArrayList<String>();
    inArr.addAll(set);
 
 
