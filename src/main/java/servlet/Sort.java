@@ -55,7 +55,20 @@ public void doPost (HttpServletRequest request, HttpServletResponse response)
    // convert one big string to a String[]
    String[] arr = all.split("\\W+");
    // convert the String[] to List<String>
-   List<String> input = Arrays.asList(arr);
+   //List<String> input = Arrays.asList(arr);
+
+
+
+List<String> og = Arrays.asList(arr);
+
+		List<String> input = new ArrayList<>();
+		og.forEach(eachValue -> {
+			if(!input.contains(eachValue)) {
+				input.add(eachValue);
+			}
+		});
+
+
 
 
    if (op.equals("A -> Z"))
@@ -68,7 +81,7 @@ public void doPost (HttpServletRequest request, HttpServletResponse response)
    }
    if (op.equals("numeric")) 
    {
-      input.sort(Comparator.comparingInt(String::length));
+      
       //do this
       //In order to simply check the string that it contains only NUMBER use the following code :
       //if (text.matches("[0-9]+"){
@@ -76,7 +89,7 @@ public void doPost (HttpServletRequest request, HttpServletResponse response)
    }
    if (op.equals("length")) 
    {
-      //do this
+      input.sort(Comparator.comparingInt(String::length));
    }
 
 
@@ -90,6 +103,7 @@ public void doPost (HttpServletRequest request, HttpServletResponse response)
       sb.append(arr[i]);
       sb.append(", ");
    }
+   sb.deleteCharAt(sb.lastIndexOf(",")); // remove the last pesky comma
    String final_str = sb.toString();
 
 
