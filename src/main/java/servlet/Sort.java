@@ -36,18 +36,7 @@ public class Sort extends HttpServlet
 // David: (5) adds the path of your form submit action
 static String Domain  = "";
 static String Path    = "";
-static String Servlet = "concat";
-
-// Button labels
-static String ABC = "String  A B C";
-static String ACB = "String  A C B";
-static String BAC = "String  B A C";
-static String BCA = "String  B C A";
-static String CAB = "String  C A B";
-static String CBA = "String  C B A";
-
-// Other strings.
-static String Style ="https://www.cs.gmu.edu/~offutt/classes/432/432-style.css";
+static String Servlet = "sort";
 
 /** *****************************************************
  *  Overrides HttpServlet's doPost().
@@ -100,8 +89,8 @@ private void PrintHead (PrintWriter out)
    out.println("<head>");
    out.println("<title>Sort them Strings</title>");
    out.println("<style>");
-   out.println("  body { background-color: #97704F; font-family:Courier New; color: #FFB6C1; }");
-   out.println("  h1   { text-align: center; color: #FFB6C1; font-size: 250%}");
+   out.println("  body { background-color: #FFB6C1; font-family:Courier New; ");
+   out.println("  h1   { text-align: center; color: #97704F; font-size: 250%}");
    out.println("  div  { margin: 0 auto; width: 400px; padding: 2em; border: 2px solid #000; border-radius: 5em; }");
    out.println("</style>");
    out.println("</head>");
