@@ -57,7 +57,7 @@ public void doPost (HttpServletRequest request, HttpServletResponse response)
    List<String> inArr = Arrays.asList(arr);
    // try to remove duplicates
    List<String> input = new ArrayList<String>();
-   for (String element : input) {
+   for (String element : inArr) {
       if (!input.contains(element)) {
          input.add(element);
       }
