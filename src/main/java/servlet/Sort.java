@@ -51,19 +51,39 @@ public void doPost (HttpServletRequest request, HttpServletResponse response)
    String all = request.getParameter("str");
    String op = request.getParameter("op");
 
-   List<String> stringList = line.Split("\\W+").ToList();
+   // convert one big string to a String[]
+   String[] arr = all.split("\\W+");
+   // convert the String[] to List<String>
+   List<String> input = Arrays.asList(arr);
 
-
-  
-   String[] arr = all.split("\\W+"); 
-   //String[] sortedArr;
 
    if (op.equals("A -> Z"))
    {
-      List<String> input = Arrays.asList(arr);
       input.sort(Comparator.comparing(String::toString));
-      String[] sortedArr = new String[input.size()];
-      sortedArr = input.toArray(sortedArr);
+   }
+   else if (op.equals("Z -> A")) 
+   {
+      input.sort(Comparator.comparing(String::toString ).reversed());
+   }
+
+   else if (op.equals("numeric")) 
+   {
+      //do this
+//In order to simply check the string that it contains only NUMBER use the following code :
+//if (text.matches("[0-9]+"){
+   // your operations
+//}
+
+   }
+
+   else if (op.equals("length")) 
+   {
+      //do this
+   }
+
+   // we take the sorted arraylist and convert it back to array
+   String[] sortedArr = new String[input.size()];
+   sortedArr = input.toArray(sortedArr);
     
    // combine all together into one big string
    StringBuffer sb = new StringBuffer();
@@ -79,45 +99,6 @@ public void doPost (HttpServletRequest request, HttpServletResponse response)
    PrintHead(out);
    PrintBody(out, final_str);
    PrintTail(out);
-
-
-
-
-
-   }
-  
-   else if (op.equals("Z -> A")) 
-   {
-      //do this
-   }
-
-   else if (op.equals("numeric")) 
-   {
-      //do this
-   }
-
-   else if (op.equals("length")) 
-   {
-      //do this
-   }
-
-   // combine all together into one big string
-/*   StringBuffer sb = new StringBuffer();
-   for(int i = 0; i < sortedArr.length; i++) {
-      sb.append(arr[i]);
-      sb.append(", ");
-   }
-   String final_str = sb.toString();
-
-   
-
-   response.setContentType("text/html");
-   PrintWriter out = response.getWriter();
-   PrintHead(out);
-   PrintBody(out, final_str);
-   PrintTail(out);
-
-*/
 
 }  // End doPost
 
