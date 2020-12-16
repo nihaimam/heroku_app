@@ -52,8 +52,17 @@ public void doPost (HttpServletRequest request, HttpServletResponse response)
    String op = request.getParameter("op");
   
    String[] arr = all.split("\\W+"); 
+
+
+StringBuffer sb = new StringBuffer();
+      for(int i = 0; i < arr.length; i++) {
+         sb.append(arr[i]);
+      }
+      String str = sb.toString();
+
+
    
-   document.getElementById("id").value = arr;
+   //request.getParameter("str").value = str;
 
 
 
@@ -62,7 +71,7 @@ public void doPost (HttpServletRequest request, HttpServletResponse response)
    response.setContentType("text/html");
    PrintWriter out = response.getWriter();
    PrintHead(out);
-   PrintBody(out, "");
+   PrintBody(out, str);
    PrintTail(out);
 }  // End doPost
 
@@ -127,6 +136,7 @@ private void PrintBody (PrintWriter out, String arr)
    out.println("      <br>");
    out.println("      <input type=\"reset\" value=\"Reset\" name=\"reset\">");
    out.println("   </form>");
+   out.println("   <br><br><p>your sorted string is: " + arr + "</p>");
    out.println("</div>");
    out.println("</body>");
 } // End PrintBody
