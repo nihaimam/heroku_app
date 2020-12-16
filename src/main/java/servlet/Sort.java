@@ -56,21 +56,14 @@ public void doPost (HttpServletRequest request, HttpServletResponse response)
    // convert the String[] to List<String>
    List<String> input = Arrays.asList(arr);
 
-
-   Set<String> set = new LinkedHashSet<>();
-   set.addAll(input);
-   input = new ArrayList<String>();
-   input.addAll(set);
-
-
    if (op.equals("A -> Z"))
    {
       input.sort(Comparator.comparing(String::toString));
    }
    if (op.equals("Z -> A")) 
    {
-      //input.sort(Comparator.comparing(String::toString ).reversed());
-      Collections.sort(input, Collections.reverseOrder());
+      input.sort(Comparator.comparing(String::toString ).reversed());
+      //Collections.sort(input, Collections.reverseOrder());
    }
 
    if (op.equals("numeric")) 
