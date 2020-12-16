@@ -55,6 +55,9 @@ public void doPost (HttpServletRequest request, HttpServletResponse response)
    String[] arr = all.split("\\W+");
    // convert the String[] to List<String>
    List<String> input = Arrays.asList(arr);
+   // remove duplicates
+   Set<String> hashSet = new LinkedHashSet(input);
+   List<String> removedDuplicates = new ArrayList(hashSet);
 
 
    if (op.equals("A -> Z"))
