@@ -59,55 +59,18 @@ static String Style ="https://www.cs.gmu.edu/~offutt/classes/432/432-style.css";
 public void doPost (HttpServletRequest request, HttpServletResponse response)
    throws ServletException, IOException
 {
-   String rslt = "";
-   String sep = ",";
-   String operation = request.getParameter("Operation");
-   String strA = request.getParameter("strA");
-   String strB = request.getParameter("strB");
-   String strC = request.getParameter("strC");
-   
-   // reverse every string
-   if ("Reverse".equals(request.getParameter("reverse")))
-   {
-      StringBuilder a = new StringBuilder(strA).reverse();
-      strA = a.toString();
+   String all = request.getParameter("str");
+   String op = request.getParameter("op");
+  
+   String[] arr = all.split("\\W+"); 
+   System.out.println(all);
 
-      StringBuilder b = new StringBuilder(strB).reverse();
-      strB = b.toString();
-
-      StringBuilder c = new StringBuilder(strC).reverse();
-      strC = c.toString();      
-   }
-   
-   if (operation.equals(ABC))
-   {
-      rslt = strA + sep + strB + sep + strC;
-   }
-   else if (operation.equals(ACB))
-   {
-      rslt = strA + sep + strC + sep + strB;
-   }
-   else if (operation.equals(BAC))
-   {  
-      rslt = strB + sep + strA + sep + strC;
-   }
-   else if (operation.equals(BCA))
-   {  
-      rslt = strB + sep + strC + sep + strA;
-   }
-   else if (operation.equals(CAB))
-   {  
-      rslt = strC + sep + strA + sep + strB;
-   }
-   else if (operation.equals(CBA))
-   {  
-      rslt = strC + sep + strB + sep + strA;
-   }
+   //else if (operation.equals(CBA))
 
    response.setContentType("text/html");
    PrintWriter out = response.getWriter();
    PrintHead(out);
-   PrintBody(out, strA, strB, strC, rslt.toString());
+   PrintBody(out, "");
    PrintTail(out);
 }  // End doPost
 
@@ -149,15 +112,15 @@ private void PrintHead (PrintWriter out)
  *  Prints the <BODY> of the HTML page with the form data
  *  values from the parameters.
 ********************************************************* */
-private void PrintBody (PrintWriter out, String strA, String strB, String strC, String rslt)
+private void PrintBody (PrintWriter out, String arr)
 {
    out.println("<body>");
    out.println("<h1> <strong>String Sorter </h1>");
    out.println("<div>");
    out.println("   <br>");
    out.println("   <p>a simple program to sort multiple multiple strings !<br>");
-   out.println("      <br>you can sort the strings in multiple orders");
-   out.println("      <br>click on any given button<br>");
+   out.println("      <br>you can sort the strings in multiple orders,");
+   out.println("      click on any given button<br>");
    out.println("      <br><br> please enter the strings seperated by space or comma or newline<br>");
    out.println("   </p>");
    out.println("   <form method=\"post\" action=\"/" + Servlet + "\">");
@@ -180,7 +143,7 @@ private void PrintBody (PrintWriter out, String strA, String strB, String strC, 
 ********************************************************* */
 private void PrintBody (PrintWriter out)
 {
-   PrintBody(out, "", "", "", "");
+   PrintBody(out, "");
 }
 
 /** *****************************************************
@@ -192,4 +155,4 @@ private void PrintTail (PrintWriter out)
    out.println("</html>");
 } // End PrintTail
 
-}  // End twoButtons
+}
