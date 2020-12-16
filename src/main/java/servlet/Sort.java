@@ -103,7 +103,6 @@ private void PrintHead (PrintWriter out)
    out.println("<style>");
    out.println("  body { background-color: #FFB6C1; font-family:Courier New; ");
    out.println("  h1   { text-align: center; color: #97704F; font-size: 250%}");
-   out.println("  div  { margin: 0 auto; width: 400px; padding: 2em; border: 2px solid #000; border-radius: 5em; }");
    out.println("</style>");
    out.println("</head>");
    out.println("");
@@ -117,26 +116,21 @@ private void PrintBody (PrintWriter out, String arr)
 {
    out.println("<body>");
    out.println("<h1> <strong>String Sorter </h1>");
-   //out.println("<div>");
    out.println("   <br>");
    out.println("   <p>a simple program to sort multiple multiple strings !<br>");
    out.println("      <br>you can sort the strings in multiple orders,");
    out.println("      click on any given button<br>");
    out.println("      <br><br> please enter the strings seperated by space or comma or newline<br>");
    out.println("   </p>");
-   out.println("<div>");
    out.println("   <form method=\"post\" action=\"/" + Servlet + "\">");
-   //out.println("      <label for=\"str\">enter strings below:</label><br>");
    out.println("      <textarea id=\"str\" name=\"str\" rows='20' cols='79'></textarea>");
    out.println("      <br><br>");
    out.println("      <input type=\"submit\" value=\"A -> Z\" name=\"op\">");
    out.println("      <input type=\"submit\" value=\"Z -> A\" name=\"op\">");
    out.println("      <input type=\"submit\" value=\"numeric\" name=\"op\">");
    out.println("      <input type=\"submit\" value=\"random\" name=\"op\">");
-   out.println("      <br>");
-   out.println("      <input type=\"reset\" value=\"Reset\" name=\"reset\">");
    out.println("   </form>");
-   out.println("   <br><br><p>your sorted string is: " + arr + "</p>");
+   out.println("   <br><p style=\"float:right;font-size: 150%;\">your sorted strings are:\" + arr + \"</p>");
    out.println("</div>");
    out.println("</body>");
 } // End PrintBody
