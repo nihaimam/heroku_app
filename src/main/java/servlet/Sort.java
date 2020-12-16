@@ -52,6 +52,9 @@ public void doPost (HttpServletRequest request, HttpServletResponse response)
    String all = request.getParameter("str");
    String op = request.getParameter("op");
 
+   // lower case the string
+   all = all.toLowerCase();
+
    // convert one big string to a String[]
    String[] arr = all.split("\\W+");
    // convert the String[] to List<String>
