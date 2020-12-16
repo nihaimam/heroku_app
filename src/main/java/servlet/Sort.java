@@ -56,10 +56,11 @@ public void doPost (HttpServletRequest request, HttpServletResponse response)
    // convert the String[] to List<String>
    List<String> input = Arrays.asList(arr);
    // remove duplicates
-   Set<String> hashSet = new LinkedHashSet<>(input);
-   input.clear();
-   input.addAll(hashSet);
-
+   ////Set<String> hashSet = new LinkedHashSet<>(input);
+   ////input.clear();
+   ////input.addAll(hashSet);
+   input = new ArrayList<String>(new LinkedHashSet<String>(input));
+   ////List<String> deduped = input.stream().distinct().collect(Collectors.toList());
 
    if (op.equals("A -> Z"))
    {
