@@ -52,27 +52,69 @@ public void doPost (HttpServletRequest request, HttpServletResponse response)
    String op = request.getParameter("op");
   
    String[] arr = all.split("\\W+"); 
+   //String[] sortedArr;
 
+   if (op.equals("A -> Z"))
+   {
+      List<String> input = Arrays.asList(arr);
+      input.sort(Comparator.comparing(String::toString));
+      String[] sortedArr = new String[input.size()];
+      sortedArr = input.toArray(sortedArr);
+    
+   // combine all together into one big string
+   StringBuffer sb = new StringBuffer();
+   for(int i = 0; i < sortedArr.length; i++) {
+      sb.append(arr[i]);
+      sb.append(", ");
+   }
+   String final_str = sb.toString();
 
-StringBuffer sb = new StringBuffer();
-      for(int i = 0; i < arr.length; i++) {
-         sb.append(arr[i]);
-      }
-      String str = sb.toString();
-
-
-   
-   //request.getParameter("str").value = str;
-
-
-
-   //else if (operation.equals(CBA))
 
    response.setContentType("text/html");
    PrintWriter out = response.getWriter();
    PrintHead(out);
-   PrintBody(out, str);
+   PrintBody(out, final_str);
    PrintTail(out);
+
+
+
+
+
+   }
+  
+   else if (op.equals("Z -> A")) 
+   {
+      //do this
+   }
+
+   else if (op.equals("numeric")) 
+   {
+      //do this
+   }
+
+   else if (op.equals("length")) 
+   {
+      //do this
+   }
+
+   // combine all together into one big string
+/*   StringBuffer sb = new StringBuffer();
+   for(int i = 0; i < sortedArr.length; i++) {
+      sb.append(arr[i]);
+      sb.append(", ");
+   }
+   String final_str = sb.toString();
+
+   
+
+   response.setContentType("text/html");
+   PrintWriter out = response.getWriter();
+   PrintHead(out);
+   PrintBody(out, final_str);
+   PrintTail(out);
+
+*/
+
 }  // End doPost
 
 /** *****************************************************
@@ -127,7 +169,8 @@ private void PrintBody (PrintWriter out, String arr)
    out.println("      <input type=\"submit\" value=\"numeric\" name=\"op\">");
    out.println("      <input type=\"submit\" value=\"random\" name=\"op\">");
    out.println("   </form>");
-   out.println("   <br><p style=\"font-size: 150%;\">your sorted strings are:<br><br>" + arr + "</p>");
+   out.println("   <br><p>your sorted strings are:</p>");
+   out.println("   <p style=\"font-size: 150%;\">:<br><br>" + arr + "</p>");
    out.println("</div>");
    out.println("</body>");
 } // End PrintBody
