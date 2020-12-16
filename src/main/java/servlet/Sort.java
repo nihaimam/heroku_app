@@ -50,6 +50,10 @@ public void doPost (HttpServletRequest request, HttpServletResponse response)
 {
    String all = request.getParameter("str");
    String op = request.getParameter("op");
+
+   List<String> stringList = line.Split("\\W+").ToList();
+
+
   
    String[] arr = all.split("\\W+"); 
    //String[] sortedArr;
@@ -170,7 +174,7 @@ private void PrintBody (PrintWriter out, String arr)
    out.println("      <input type=\"submit\" value=\"random\" name=\"op\">");
    out.println("   </form>");
    out.println("   <br><p>your sorted strings are:</p>");
-   out.println("   <p style=\"font-size: 150%;\">:<br><br>" + arr + "</p>");
+   out.println("   <p style=\"font-size: 150%;\"><br><br>" + arr + "</p>");
    out.println("</div>");
    out.println("</body>");
 } // End PrintBody
