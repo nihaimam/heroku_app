@@ -116,10 +116,7 @@ private void PrintBody (PrintWriter out, String arr)
 {
    out.println("<body>");
    out.println("<h1> <strong>String Sorter </h1>");
-   out.println("   <br>");
    out.println("   <p>a simple program to sort multiple multiple strings !<br>");
-   out.println("      <br>you can sort the strings in multiple orders,");
-   out.println("      click on any given button<br>");
    out.println("      <br><br> please enter the strings seperated by space or comma or newline<br>");
    out.println("   </p>");
    out.println("   <form method=\"post\" action=\"/" + Servlet + "\">");
@@ -130,7 +127,7 @@ private void PrintBody (PrintWriter out, String arr)
    out.println("      <input type=\"submit\" value=\"numeric\" name=\"op\">");
    out.println("      <input type=\"submit\" value=\"random\" name=\"op\">");
    out.println("   </form>");
-   out.println("   <br><p style=\"float:right;font-size: 150%;\">your sorted strings are:\" + arr + \"</p>");
+   out.println("   <br><p style=\"font-size: 150%;\">your sorted strings are:<br><br>" + arr + "</p>");
    out.println("</div>");
    out.println("</body>");
 } // End PrintBody
