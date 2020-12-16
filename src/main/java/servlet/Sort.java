@@ -160,7 +160,7 @@ private void PrintBody (PrintWriter out, String strA, String strB, String strC, 
    out.println("   </p>");
    out.println("   <form method=\"post\" action=\"/" + Servlet + "\">");
    out.println("      <label for=\"str\">enter strings below:</label><br>");
-   out.println("      <textarea id=\"str\" name=\"str\" rows='8' cols='50'></textarea>");
+   out.println("      <textarea id=\"str\" name=\"str\" rows='8' cols='53'></textarea>");
    out.println("      <br><br>");
    out.println("      <input type=\"submit\" value=\"A -> Z\" name=\"op\">");
    out.println("      <input type=\"submit\" value=\"Z -> A\" name=\"op\">");
