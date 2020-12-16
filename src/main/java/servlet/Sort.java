@@ -80,6 +80,15 @@ public void doPost (HttpServletRequest request, HttpServletResponse response)
       //do this
    }
 
+   // try to take out duplicates
+   List<String> nodup = new ArrayList<String>();
+   for (String element : input) {
+      if (!nodup.contains(element)) {
+         nodup.add(element);
+      }
+   }
+
+
    // we take the sorted arraylist and convert it back to array
    String[] sortedArr = new String[input.size()];
    sortedArr = input.toArray(sortedArr);
