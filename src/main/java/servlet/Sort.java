@@ -54,23 +54,13 @@ public void doPost (HttpServletRequest request, HttpServletResponse response)
    // convert one big string to a String[]
    String[] arr = all.split("\\W+");
    // convert the String[] to List<String>
-   List<String> inArr = Arrays.asList(arr);
+   List<String> input = Arrays.asList(arr);
 
 
    Set<String> set = new LinkedHashSet<>();
-   set.addAll(inArr);
-   inArr = new ArrayList<String>();
-   inArr.addAll(set);
-
-
-   // try to remove duplicates
-   List<String> input = new ArrayList<String>();
-   for (String element : inArr) {
-      if (!(input.contains(element))) {
-         input.add(element);
-      }
-   }
-
+   set.addAll(input);
+   input = new ArrayList<String>();
+   input.addAll(set);
 
 
    if (op.equals("A -> Z"))
